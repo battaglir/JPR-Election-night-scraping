@@ -1,4 +1,4 @@
-# Oregon Election Results Scraper
+# Oregon & California Election Results Scraper
 
 ## Overview
 
