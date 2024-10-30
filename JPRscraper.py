@@ -64,7 +64,7 @@ with open(latest_prop_name, "r") as f:
                 "No %": measure["noPercent"]
             })
 
-    print(f"Data written to {csv_filename}")
+    print(f"California Measure data written to {csv_filename}")
 
 
 # %%
@@ -104,6 +104,8 @@ dw.update_chart("ysg3H", metadata=metadata)
 #republish the chart
 dw.publish_chart("ysg3H")
 
+print("California Proposition data updated in Datawrapper")
+
 
 # %%
 
@@ -130,10 +132,6 @@ latest_cal_name = f"california_cands_{timenow}.json"
 #Write the JSON results to the file
 with open(latest_cal_name, "w") as outfile:
     json.dump(cal_cands, outfile)
-
-print("Latest filename:", latest_cal_name)
-
-print (cal_json)
 
 #Open the JSON file and extract the data
 with open(latest_cal_name, "r") as f:
@@ -167,7 +165,6 @@ with open(latest_cal_name, "r") as f:
                 votes = candidate.get("Votes").replace(',', '')
                 percent = candidate.get("Percent")
                 
-                print ([race, name, party, votes, percent])
                 # Write the candidate's information to the CSV file
                 writer.writerow({
                     "Race": race,
@@ -177,6 +174,7 @@ with open(latest_cal_name, "r") as f:
                     "Percent": percent
                 })
 
+    print(f"California State Legislature data written to {csv_filename}")
 # %%
 # Take the candidate data for California and update the datawrapper chart
 #Call datawrapper and replace the data in the chart with the latest data
@@ -202,6 +200,8 @@ dw.update_chart("lyV8E", metadata=metadata)
 
 #republish the chart
 dw.publish_chart("lyV8E")
+
+print("California State Legislature data updated in Datawrapper")
 
 # %%
 # Grab the statewide measures in Oregon
@@ -293,7 +293,7 @@ with open(latest_measure_name, "r") as f:
     # Write the sorted DataFrame back to the CSV file
     df_sorted.to_csv(csv_filename, index=False)
 
-    print(f"Sorted Oregon Measure data written to {csv_filename}")
+    print(f"Oregon Measure data written to {csv_filename}")
 
 # %%
 #Call datawrapper and replace the data in the chart with the latest data
@@ -319,6 +319,8 @@ dw.update_chart("1uvst", metadata=metadata)
 
 #republish the chart
 dw.publish_chart("1uvst")
+
+print("Oregon Measure data updated in Datawrapper")
 
 # %%
 
@@ -410,7 +412,7 @@ for raceid in oregon_ids:
                 "Percent": race_percentage
             })
 
-print(f"Sorted Oregon State Legislature data written to {csv_filename}")
+print(f"Oregon State Legislature data written to {csv_filename}")
 
 # %%
 
@@ -437,5 +439,16 @@ dw.update_chart("2pT4G", metadata=metadata)
 
 #republish the chart
 dw.publish_chart("2pT4G")
+
+print("Oregon State Legislature data updated in Datawrapper")
+
+# Delete any JSON files in the directory that are older than 24 hours
+now = datetime.datetime.now(tz=pacific_tz)
+for filename in os.listdir('.'):
+    if filename.endswith('.json'):
+        file_time = datetime.datetime.fromtimestamp(os.path.getmtime(filename), tz=pacific_tz)
+        if (now - file_time).total_seconds() > 24 * 3600:
+            os.remove(filename)
+            print(f"Deleted old file: {filename}")
 
 
