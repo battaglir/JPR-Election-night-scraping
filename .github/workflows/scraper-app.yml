@@ -3,8 +3,8 @@
 name: JPR Election Results Scraper
 
 on:
-  #schedule:
-  #  - cron: '30 23 * * *'   # <-- Set your cron here (UTC). Uses github which can be ~2-10 mins late.
+  schedule:
+    - cron: '3,33 * * * *'   # <-- Set your cron here (UTC). Uses github which can be ~2-10 mins late.
   workflow_dispatch:
 
 permissions:
