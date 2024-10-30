@@ -5,12 +5,12 @@ Race,Candidate,Party,Votes,Percent
 "State Representative, 2nd District",August Warren,Democrat,23,18.69918699186992
 "State Representative, 2nd District",Virgle J Osborne,"Republican, Constitution",41,33.33333333333333
 "State Representative, 2nd District",Write-in,,59,47.96747967479675
-"State Representative, 3rd District",Dwayne Yunker,Republican,0,0
-"State Representative, 3rd District",Mark J Seligman,Democrat,0,0
+"State Representative, 3rd District",Dwayne Yunker,Republican,1,50.0
+"State Representative, 3rd District",Mark J Seligman,Democrat,1,50.0
 "State Representative, 3rd District",Write-in,,0,0
-"State Representative, 4th District",Richard Chasm,Democrat,71,30.735930735930733
-"State Representative, 4th District",Alek Skarlatos,Republican,77,33.33333333333333
-"State Representative, 4th District",Write-in,,83,35.93073593073593
+"State Representative, 4th District",Richard Chasm,Democrat,72,30.90128755364807
+"State Representative, 4th District",Alek Skarlatos,Republican,78,33.47639484978541
+"State Representative, 4th District",Write-in,,83,35.622317596566525
 "State Representative, 5th District",Katherine Green,Republican,85,33.33333333333333
 "State Representative, 5th District",Pam Marsh,"Democrat, Independent",85,33.33333333333333
 "State Representative, 5th District",Write-in,,85,33.33333333333333
@@ -28,12 +28,12 @@ Race,Candidate,Party,Votes,Percent
 "State Senator, 1st District",Lupe Preciado-McAlister,Democrat,38,18.536585365853657
 "State Senator, 1st District",David Brock Smith,"Republican, Independent",71,34.63414634146341
 "State Senator, 1st District",Write-in,,96,46.82926829268293
-"State Senator, 2nd District",Tracy Thompson,Democrat,71,30.735930735930733
-"State Senator, 2nd District",Noah Robinson,Republican,77,33.33333333333333
-"State Senator, 2nd District",Write-in,,83,35.93073593073593
-"State Senator, 5th District",Jo Beaudreau,Democrat,95,21.689497716894977
-"State Senator, 5th District",Dick Anderson,Republican,190,43.37899543378995
-"State Senator, 5th District",Write-in,,153,34.93150684931507
+"State Senator, 2nd District",Tracy Thompson,Democrat,72,30.90128755364807
+"State Senator, 2nd District",Noah Robinson,Republican,78,33.47639484978541
+"State Senator, 2nd District",Write-in,,83,35.622317596566525
+"State Senator, 5th District",Jo Beaudreau,Democrat,103,21.914893617021278
+"State Senator, 5th District",Dick Anderson,Republican,206,43.829787234042556
+"State Senator, 5th District",Write-in,,161,34.25531914893617
 "State Senator, 28th District",Dylan Gutridge,Democrat,105,27.131782945736433
 "State Senator, 28th District",Diane Linthicum,Republican,129,33.33333333333333
 "State Senator, 28th District",Write-in,,153,39.53488372093023
