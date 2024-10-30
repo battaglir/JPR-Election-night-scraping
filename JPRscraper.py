@@ -4,7 +4,7 @@
 # This program will scrape the results for specific contests in Oregon and California, organize the data, push the data to a Datawrapper graph and automatically update the graph with the latest data.
 
 # %%
-import requests, datetime, json, csv, re, os, pandas as pd
+import requests, datetime, json, csv, re, os, pytz, pandas as pd
 
 # Import Propositions from California Secretary of State
 
@@ -19,8 +19,10 @@ props = r.json()
 
 json_props = json.dumps(props, indent=4)
 
+pacific_tz = pytz.timezone('US/Pacific')
+
 #Set the current date and time
-timenow = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
+timenow = datetime.datetime.now(tz=pacific_tz).strftime("%Y-%m-%d_%H-%M")
 
 #Create a JSON file with the latest results and the current date and time
 latest_prop_name = f"california_props_{timenow}.json"
@@ -80,7 +82,7 @@ dw.add_data(
 )
 
 #Set the latest time and date
-latest_time = datetime.datetime.now().strftime("%m/%d/%Y, %I:%M %p")
+latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p")
 
 #set the metadata for the chart we want to replace
 metadata = {
@@ -172,7 +174,7 @@ dw.add_data(
 )
 
 #Set the latest time and date
-latest_time = datetime.datetime.now().strftime("%m/%d/%Y, %I:%M %p")
+latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p")
 
 #set the metadata for the chart we want to replace
 metadata = {
@@ -285,7 +287,7 @@ dw.add_data(
 )
 
 #Set the latest time and date
-latest_time = datetime.datetime.now().strftime("%m/%d/%Y, %I:%M %p")
+latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p")
 
 #set the metadata for the chart we want to replace
 metadata = {
@@ -307,7 +309,7 @@ with open('oregon_raceids.txt', 'r') as f:
     oregon_ids = [line.strip() for line in f.readlines()]
 
 #Set the current date and time
-timenow = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
+timenow = datetime.datetime.now(tz=pacific_tz).strftime("%Y-%m-%d_%H-%M")
 
 #Set the filename for the JSON file with the latest data and time
 latest_file_name = f"oregon_leg_{timenow}.json"
@@ -398,7 +400,7 @@ dw.add_data(
 )
 
 #Set the latest time and date
-latest_time = datetime.datetime.now().strftime("%m/%d/%Y, %I:%M %p")
+latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p")
 
 #set the metadata for the chart we want to replace
 metadata = {
