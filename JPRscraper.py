@@ -2,13 +2,18 @@
 # Election Scraper and results graphs
 # 
 # This program will scrape the results for specific contests in Oregon and California, organize the data, push the data to a Datawrapper graph and automatically update the graph with the latest data.
+# This program was built for the 2024 General Election. It may need to be modified in the future to work with other elections. Places where the program may need to be updated are noted in the comments.
+# Licensed under a GNU General Public License v3.0
+# Code written by Roman Battaglia, 2024.
 
 # %%
+#Import the required packages
 import requests, datetime, json, csv, re, os, pytz, pandas as pd
 
 # Import Propositions from California Secretary of State
 
 #Set the URL for the California ballot measure API
+#NOTE: Change this API URL to the correct one for the current election, which could change in the future. Found at https://www.sos.ca.gov/media
 r = requests.get("https://api.sos.ca.gov/returns/ballot-measures")
 
 #Call the API
@@ -19,6 +24,7 @@ props = r.json()
 
 json_props = json.dumps(props, indent=4)
 
+#Set the time zone to Pacific Time
 pacific_tz = pytz.timezone('US/Pacific')
 
 #Set the current date and time
@@ -30,10 +36,6 @@ latest_prop_name = f"california_props_{timenow}.json"
 #Write the JSON results to the file
 with open(latest_prop_name, "w") as outfile:
     json.dump(props, outfile)
-
-print("Latest filename:", latest_prop_name)
-
-print (json_props)
 
 # Load the JSON file and extract the ballot measures data
 with open(latest_prop_name, "r") as f:
@@ -49,6 +51,7 @@ with open(latest_prop_name, "r") as f:
     csv_headers = ["Proposition", "Yes Votes", "Yes %", "No Votes", "No %"]
 
     # Write data to CSV
+    #NOTE: This may need to be updated to reflect the current data structure of the API response
     with open(csv_filename, mode='w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=csv_headers)
         writer.writeheader()
@@ -70,6 +73,8 @@ with open(latest_prop_name, "r") as f:
 
 from datawrapper import Datawrapper
 
+#Get the API key from the environment variables
+#NOTE: You will need to set the environment variable in GitHub Secrets, or replace this with your API key
 dw_key = os.environ.get("DATAWRAPPER_API_KEY")
 
 #Set the API key for Datawrapper
@@ -77,6 +82,7 @@ dw = Datawrapper(dw_key)
 
 #Call datawrapper and replace the data in the chart with the latest data
 dw.add_data(
+    #NOTE: Change the chart_id to the correct chart ID for the graph you want to update. You can find this in the URL of the chart in Datawrapper. I created the graphs first manually, then grabbed the chart ID
     chart_id="ysg3H",
     data=pd.read_csv("california_prop_results.csv")
 )
@@ -87,6 +93,7 @@ latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p"
 #set the metadata for the chart we want to replace
 metadata = {
                 "annotate": {
+                    #NOTE: Change "PST" to "PDT" if the current time is in Daylight Saving Time
                     "notes": f"Last updated: {latest_time} PST"
                 }
             }
@@ -103,6 +110,9 @@ dw.publish_chart("ysg3H")
 # Code to grab the relevant state assembly and senate races in California
 
 #Set the API url to grab all the state legislature districts in our region
+#NOTE: Change this API URL to the correct one for the current election, which could change in the future. Found at https://www.sos.ca.gov/media.
+#You will also need to change the race IDs to reflect the races you want to grab for the current election. I found those in the API Endpoints CSV file provided by the Cal SOS.
+#The first half of the document had api's with words, and those correspond to another URL in the second half with a number for that race. They're both int he same order, so find the matching URL.
 r = requests.get('https://api.sos.ca.gov/returns/query?r=["13000001000059","13000002000059","13000003000059","12000001000059"]')
 
 #Call the API
@@ -138,6 +148,7 @@ with open(latest_cal_name, "r") as f:
     with open(csv_filename, mode='w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=csv_headers)
         writer.writeheader()
+        #NOTE: This may need to be updated to reflect the current data structure of the API response
         for contest in data:
             #Get the name of the race
             race = contest.get("raceTitle").replace(" - Districtwide Results", "")
@@ -148,6 +159,7 @@ with open(latest_cal_name, "r") as f:
                 else:
                     name = candidate.get("Name")
                 #Check for the party of each candidate
+                #NOTE: The data structure could change the way parties are represented, so this may need to be updated
                 if candidate.get("Party") == "Dem":
                     party = "Democratic"
                 elif candidate.get("Party") == "Rep":
@@ -169,6 +181,7 @@ with open(latest_cal_name, "r") as f:
 # Take the candidate data for California and update the datawrapper chart
 #Call datawrapper and replace the data in the chart with the latest data
 dw.add_data(
+    #NOTE: Change the chart_id to the correct chart ID for the graph you want to update. You can find this in the URL of the chart in Datawrapper. I created the graphs first manually, then grabbed the chart ID
     chart_id="lyV8E",
     data=pd.read_csv("california_cand_results.csv")
 )
@@ -179,6 +192,7 @@ latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p"
 #set the metadata for the chart we want to replace
 metadata = {
                 "annotate": {
+                    #NOTE: Change "PST" to "PDT" if the current time is in Daylight Saving Time
                     "notes": f"Last updated: {latest_time} PST"
                 }
             }
@@ -193,6 +207,8 @@ dw.publish_chart("lyV8E")
 # Grab the statewide measures in Oregon
 
 #Set the URL to the call the Oregon results API for all statewide measures
+#NOTE: This API URL may change for future elections, so you will need to update it to the correct URL for the current election. Reach out to the PIO for the Oregon SOS before the election. They did not have documentation available for the data feed.
+# I found the right code by messing around with the URL and seeing what worked. I found that getting the type right was important, it matched up with the type in the URL of the https://results.oregonvotes.gov webpage. The other categories are all needed or results won't show up. Party can be changed to "DEM" or "REP" 
 r = requests.get("https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=MEASURE&category=SW&raceID=0&osn=0&county=0&party=0")
 
 #Call the API
@@ -209,9 +225,6 @@ latest_measure_name = f"oregon_measures_{timenow}.json"
 # Write the JSON data to a file
 with open(latest_measure_name, "w") as outfile:
     json.dump(measures, outfile)
-
-print("Latest filename:", latest_measure_name)
-print(json_measures)
 
 # Open the JSON file and load the data
 with open(latest_measure_name, "r") as f:
@@ -230,12 +243,16 @@ with open(latest_measure_name, "r") as f:
     with open(csv_filename, mode='w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=csv_headers)
         writer.writeheader()
-
+        
+        #NOTE: This may need to be updated to reflect the current data structure of the API response
+        #The "[:5]" is used to limit the number of measures to 5, you can change this number to get more or less measures. If removed, this will get all measures twice.
         # Iterate through the measures and write the relevant data to the CSV
         for measure in measures[:5]:
             race_id = measure["RaceID"]
+            #The measure number and description were combined in the API response, so we need to separate out the measure number using regex
             race_name = re.search("Measure ...", measure["RaceName"]).group(0)
             calc_candidate = measure["calcCandidate"]
+            #For the 2024 election, percentages were shown as decimals, so we need to multiply by 100 to get the percentage
             calc_candidate_percentage = measure["calcCandidatePercentage"] * 100
             calc_candidate_votes = measure["calcCandidateVotes"]
 
@@ -247,6 +264,7 @@ with open(latest_measure_name, "r") as f:
                 no_percent = calc_candidate_percentage
                 no_votes = calc_candidate_votes
 
+            #In Oregon, the "Yes" and "No" votes for measures are stored as seperate "candidates" in the API response, so we need to find the other candidate's data by matching the race_id and adding the remaining yes or no votes
             # Find the other candidate's data for the same measure
             for other_measure in measures:
                 if other_measure["RaceID"] == race_id and other_measure["calcCandidate"] != calc_candidate:
@@ -266,8 +284,6 @@ with open(latest_measure_name, "r") as f:
                 "No %": no_percent
             })
 
-            print([race_name, yes_votes, yes_percent, no_votes, no_percent])
-
     # Read the CSV file into a DataFrame
     df = pd.read_csv(csv_filename)
 
@@ -277,11 +293,12 @@ with open(latest_measure_name, "r") as f:
     # Write the sorted DataFrame back to the CSV file
     df_sorted.to_csv(csv_filename, index=False)
 
-    print(f"Sorted data written to {csv_filename}")
+    print(f"Sorted Oregon Measure data written to {csv_filename}")
 
 # %%
 #Call datawrapper and replace the data in the chart with the latest data
 dw.add_data(
+    #NOTE: Change the chart_id to the correct chart ID for the graph you want to update. You can find this in the URL of the chart in Datawrapper. I created the graphs first manually, then grabbed the chart ID
     chart_id="1uvst",
     data=pd.read_csv("oregon_measure_results.csv")
 )
@@ -292,6 +309,7 @@ latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p"
 #set the metadata for the chart we want to replace
 metadata = {
                 "annotate": {
+                    #NOTE: Change "PST" to "PDT" if the current time is in Daylight Saving Time
                     "notes": f"Last updated: {latest_time} PST"
                 }
             }
@@ -305,6 +323,8 @@ dw.publish_chart("1uvst")
 # %%
 
 #Open the text file containing race IDs for races we are tracking
+#NOTE: The oregon_raceids.txt file contains the Race IDs for the State legislature race's we're tracking, you will need to update this file with the races to track. Each number is on an individual line.
+#Raceids can be found by looking through the API response for the Oregon SOS with all the state legislature races. Use one of the API URL's below, but replace {raceid} with "0"
 with open('oregon_raceids.txt', 'r') as f:
     oregon_ids = [line.strip() for line in f.readlines()]
 
@@ -330,6 +350,7 @@ for raceid in oregon_ids:
     #Print the current Race id we're working on
     print("raceid:"+raceid)
     #Convert the raceID to an integer, and if it's greater than 300031536, it's a house race, otherwise, set the URL to a Senate race
+    #NOTE: This is a bit of a stupid way to do this, but it works. You may need to change it depending on the raceids used. Here, the first house race starts at 300031536, so I used that as the cutoff.
     if int(raceid) >= 300031536:
         r = requests.get(f"https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=HOUSE&category=SW&raceID={raceid}&osn=0&county=0&party=0")
     else:
@@ -356,8 +377,6 @@ for raceid in oregon_ids:
         with open(latest_file_name, "w") as outfile:
             json.dump(a_data, outfile)
 
-    print("Latest filename:", latest_file_name)
-
     #Open the JSON file and extract the data
     with open(latest_file_name, "r") as f:
         data = json.load(f)
@@ -371,10 +390,12 @@ for raceid in oregon_ids:
         #go through every candidate in that specific race
         for race in races:
             #Gather the race name, candidate, percentage, votes, and check if they have a party name.
+            #NOTE: This may need to be updated to reflect the current data structure of the API response
             race_name = race["RaceName"]
             race_candidate = race["calcCandidate"]
             race_percentage = race["calcCandidatePercentage"]*100
             race_votes = race["calcCandidateVotes"]
+            #If there is no party name, fill the cell with an empty string
             if race["PartyName"]:
                 race_party = race["PartyName"]
             else:
@@ -389,12 +410,13 @@ for raceid in oregon_ids:
                 "Percent": race_percentage
             })
 
-            print([race_name, race_candidate, race_party, race_votes, race_percentage])
+print(f"Sorted Oregon State Legislature data written to {csv_filename}")
 
 # %%
 
 #Call datawrapper and replace the data in the chart with the latest data
 dw.add_data(
+    #NOTE: Change the chart_id to the correct chart ID for the graph you want to update. You can find this in the URL of the chart in Datawrapper. I created the graphs first manually, then grabbed the chart
     chart_id="2pT4G",
     data=pd.read_csv("oregon_leg_results.csv")
 )
@@ -405,6 +427,7 @@ latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p"
 #set the metadata for the chart we want to replace
 metadata = {
                 "annotate": {
+                    #NOTE: Change "PST" to "PDT" if the current time is in Daylight Saving Time
                     "notes": f"Last updated: {latest_time} PST"
                 }
             }
