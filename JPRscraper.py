@@ -31,7 +31,7 @@ pacific_tz = pytz.timezone('US/Pacific')
 timenow = datetime.datetime.now(tz=pacific_tz).strftime("%Y-%m-%d_%H-%M")
 
 #Create a JSON file with the latest results and the current date and time
-latest_prop_name = f"california_props_{timenow}.json"
+latest_prop_name = f"jsons/california_props_{timenow}.json"
 
 #Write the JSON results to the file
 with open(latest_prop_name, "w") as outfile:
@@ -138,7 +138,7 @@ with open(latest_cal_name, "r") as f:
     data = json.load(f)
 
     # Define CSV file name
-    csv_filename = "california_cand_results.csv"
+    csv_filename = "jsons/california_cand_results.csv"
 
     #Set the column headers for the CSV file
     csv_headers = ["Race", "Candidate", "Party", "Votes", "Percent"]
@@ -234,7 +234,7 @@ with open(latest_measure_name, "r") as f:
     measures = data["d"]
 
     # Define the CSV filename
-    csv_filename = "oregon_measure_results.csv"
+    csv_filename = "jsons/oregon_measure_results.csv"
 
     # Define the CSV headers
     csv_headers = ["Measure", "Yes Votes", "Yes %", "No Votes", "No %"]
@@ -324,7 +324,92 @@ print("Oregon Measure data updated in Datawrapper")
 
 # %%
 
-#Open the text file containing race IDs for races we are tracking
+#Gather the statewide Oregon races
+
+#Set the current time and date
+timenow = datetime.datetime.now(tz=pacific_tz).strftime("%Y-%m-%d_%H-%M")
+
+#Set the filename for the JSON file with the latest data and time
+latest_file_name = f"jsons/oregon_stwide_{timenow}.json"
+
+#Set the filename for the CSV file
+#NOTE: We are using the same CSV file for both the statewide and state legislature races because they're on the same graph. Change the CSV filename if you want to separate them.
+csv_filename = "oregon_leg_results.csv"
+
+#Set the column headers for the CSV file
+csv_headers = ["Race", "Candidate", "Party", "Votes", "Percent"]
+
+#Create a dictionary with the raceIDs for the statewide races we want to track
+#NOTE: You will need to update this list with the correct raceIDs for future elections. I found these by looking at all statewide races. Use the URL below but replace {raceid} with "0"
+oregon_ids = ["300031519", "300031520", "300031518"]
+
+#Clear the CSV file and add the headers to the top
+with open(csv_filename, mode='w', newline='') as file:
+    writer = csv.DictWriter(file, fieldnames=csv_headers)
+    writer.writeheader()
+
+#Iterate through each ID in oregon_ids
+for raceids in oregon_ids:
+    #Set the URL to the Oregon SOS API for the statewide results
+    #NOTE: Change this API URL to the correct one for the current election, which could change in the future.
+    r= requests.get(f"https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=SWPAR&category=SW&raceID={raceids}&osn=0&county=0&party=0")
+
+    #Call the API
+    r.raise_for_status()
+
+    #Gather the JSON results from the API request
+    a_data = r.json()
+
+    #If there is a file with the latest data, update it with the new data
+    if os.path.isfile(latest_file_name):
+
+        with open(latest_file_name, "r") as infile:
+            data = json.load(infile)
+
+        data.update(a_data)
+
+        with open(latest_file_name, "w") as outfile:
+            json.dump(data, outfile)
+    #otherwise, create a new file with the latest data
+    else:
+        with open(latest_file_name, "w") as outfile:
+            json.dump(a_data, outfile)
+
+    #Navigate down to just the stuff we want
+    races = data["d"]
+
+    #Open the CSV file and prepare to append the data to it
+    with open(csv_filename, mode='a', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=csv_headers)
+
+        #Iterate through each candidate in the JSON
+        for race in races:
+             
+            #Gather the required information from the JSON
+            race_name = race["RaceName"]
+            race_candidate = race["calcCandidate"]
+            race_percentage = race["calcCandidatePercentage"]*100
+            race_votes = race["calcCandidateVotes"]
+            #If there is no party name, fill the cell with an empty string
+            if race["PartyName"]:
+                race_party = race["PartyName"]
+            else:
+                race_party = ""
+
+            #Write the data to the CSV file
+            writer.writerow({
+                "Race": race_name,
+                "Candidate": race_candidate,
+                "Party": race_party,
+                "Votes": race_votes,
+                "Percent": race_percentage
+            })
+
+print(f"Oregon statewide races data written to {csv_filename}")
+
+
+# %%
+#Open the text file containing race IDs for races we are tracking 
 #NOTE: The oregon_raceids.txt file contains the Race IDs for the State legislature race's we're tracking, you will need to update this file with the races to track. Each number is on an individual line.
 #Raceids can be found by looking through the API response for the Oregon SOS with all the state legislature races. Use one of the API URL's below, but replace {raceid} with "0"
 with open('oregon_raceids.txt', 'r') as f:
@@ -334,18 +419,13 @@ with open('oregon_raceids.txt', 'r') as f:
 timenow = datetime.datetime.now(tz=pacific_tz).strftime("%Y-%m-%d_%H-%M")
 
 #Set the filename for the JSON file with the latest data and time
-latest_file_name = f"oregon_leg_{timenow}.json"
+latest_file_name = f"jsons/oregon_leg_{timenow}.json"
 
 #Set the filename for the CSV file with the latest data
 csv_filename = "oregon_leg_results.csv"
 
 #Set the column headers for the CSV file
 csv_headers = ["Race", "Candidate", "Party", "Votes", "Percent"]
-
-#Clear the CSV file and add the headers to the top
-with open(csv_filename, mode='w', newline='') as file:
-    writer = csv.DictWriter(file, fieldnames=csv_headers)
-    writer.writeheader()
 
 #Iterate through each race in the raceids text file
 for raceid in oregon_ids:
@@ -444,11 +524,11 @@ print("Oregon State Legislature data updated in Datawrapper")
 
 # Delete any JSON files in the directory that are older than 24 hours
 now = datetime.datetime.now(tz=pacific_tz)
-for filename in os.listdir('.'):
+for filename in os.listdir('jsons/.'):
     if filename.endswith('.json'):
-        file_time = datetime.datetime.fromtimestamp(os.path.getmtime(filename), tz=pacific_tz)
+        file_time = datetime.datetime.fromtimestamp(os.path.getmtime(f'jsons/{filename}'), tz=pacific_tz)
         if (now - file_time).total_seconds() > 24 * 3600:
-            os.remove(filename)
+            os.remove(f'jsons/{filename}')
             print(f"Deleted old file: {filename}")
 
 
