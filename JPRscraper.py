@@ -449,7 +449,7 @@ for raceid in oregon_ids:
     a_data = r.json()
 
     #If there is a file with the latest data, update it with the new data
-    if os.path.isfile(f"jsons/{latest_file_name}"):
+    if os.path.isfile(latest_file_name):
 
         with open(latest_file_name, "r") as infile:
             data = json.load(infile)
