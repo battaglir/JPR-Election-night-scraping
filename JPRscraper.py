@@ -361,22 +361,22 @@ for raceids in oregon_ids:
     a_data = r.json()
 
     #If there is a file with the latest data, update it with the new data
-    if os.path.isfile(f"jsons/{latest_file_name}"):
+    if os.path.isfile(latest_file_name):
 
-        with open(f"jsons/{latest_file_name}", "r") as infile:
+        with open(latest_file_name, "r") as infile:
             data = json.load(infile)
 
         data.update(a_data)
 
-        with open(f"jsons/{latest_file_name}", "w") as outfile:
+        with open(latest_file_name, "w") as outfile:
             json.dump(data, outfile)
     #otherwise, create a new file with the latest data
     else:
-        with open(f"jsons/{latest_file_name}", "w") as outfile:
+        with open(latest_file_name, "w") as outfile:
             json.dump(a_data, outfile)
 
     #Open the JSON file and extract the data
-    with open(f"jsons/{latest_file_name}", "r") as f:
+    with open(latest_file_name, "r") as f:
         data = json.load(f)
 
     #Navigate down to just the stuff we want
