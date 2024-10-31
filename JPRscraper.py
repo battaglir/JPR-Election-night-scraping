@@ -127,7 +127,7 @@ cal_cands = r.json()
 cal_json = json.dumps(cal_cands, indent=4)
 
 #Set the filename of the JSON to the current date and time
-latest_cal_name = f"california_cands_{timenow}.json"
+latest_cal_name = f"jsons/california_cands_{timenow}.json"
 
 #Write the JSON results to the file
 with open(latest_cal_name, "w") as outfile:
@@ -138,7 +138,7 @@ with open(latest_cal_name, "r") as f:
     data = json.load(f)
 
     # Define CSV file name
-    csv_filename = "jsons/california_cand_results.csv"
+    csv_filename = "california_cand_results.csv"
 
     #Set the column headers for the CSV file
     csv_headers = ["Race", "Candidate", "Party", "Votes", "Percent"]
@@ -220,7 +220,7 @@ measures = r.json()
 json_measures = json.dumps(measures, indent=4)
 
 # Define the filename for the JSON data with the current timestamp
-latest_measure_name = f"oregon_measures_{timenow}.json"
+latest_measure_name = f"jsons/oregon_measures_{timenow}.json"
 
 # Write the JSON data to a file
 with open(latest_measure_name, "w") as outfile:
@@ -234,7 +234,7 @@ with open(latest_measure_name, "r") as f:
     measures = data["d"]
 
     # Define the CSV filename
-    csv_filename = "jsons/oregon_measure_results.csv"
+    csv_filename = "oregon_measure_results.csv"
 
     # Define the CSV headers
     csv_headers = ["Measure", "Yes Votes", "Yes %", "No Votes", "No %"]
@@ -361,7 +361,7 @@ for raceids in oregon_ids:
     a_data = r.json()
 
     #If there is a file with the latest data, update it with the new data
-    if os.path.isfile(latest_file_name):
+    if os.path.isfile(f"jsons/{latest_file_name}"):
 
         with open(latest_file_name, "r") as infile:
             data = json.load(infile)
@@ -445,7 +445,7 @@ for raceid in oregon_ids:
     a_data = r.json()
 
     #If there is a file with the latest data, update it with the new data
-    if os.path.isfile(latest_file_name):
+    if os.path.isfile(f"jsons/{latest_file_name}"):
 
         with open(latest_file_name, "r") as infile:
             data = json.load(infile)
