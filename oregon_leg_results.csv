@@ -1,52 +1,58 @@
 Race,Candidate,Party,Votes,Percent
-"State Representative, 5th District",Katherine Green,Republican,85,33.33333333333333
-"State Representative, 5th District",Pam Marsh,"Democrat, Independent",85,33.33333333333333
-"State Representative, 5th District",Write-in,,85,33.33333333333333
-"State Representative, 6th District",Kim Wallan,Republican,85,33.33333333333333
-"State Representative, 6th District",Lilia Caballero,"Democrat, Independent",85,33.33333333333333
-"State Representative, 6th District",Write-in,,85,33.33333333333333
-"State Representative, 55th District",James Williamson,Democrat,28,18.181818181818183
-"State Representative, 55th District",E Werner Reschke,Republican,51,33.116883116883116
-"State Representative, 55th District",Write-in,,75,48.701298701298704
-"State Representative, 4th District",Richard Chasm,Democrat,72,30.90128755364807
-"State Representative, 4th District",Alek Skarlatos,Republican,78,33.47639484978541
-"State Representative, 4th District",Write-in,,83,35.622317596566525
-"State Representative, 1st District",Court Boice,Republican,15,18.29268292682927
-"State Representative, 1st District",Bret Cecil,Democrat,30,36.58536585365854
-"State Representative, 1st District",Write-in,,37,45.1219512195122
-"State Representative, 2nd District",August Warren,Democrat,23,18.69918699186992
-"State Representative, 2nd District",Virgle J Osborne,"Republican, Constitution",41,33.33333333333333
-"State Representative, 2nd District",Write-in,,59,47.96747967479675
-"State Representative, 3rd District",Dwayne Yunker,Republican,1,50.0
-"State Representative, 3rd District",Mark J Seligman,Democrat,1,50.0
+Measure 115 Amends Constitution: Authorizes impeachment of statewide elected officials by Oregon Legislature with two-thirds vote by each House; establishes process,Yes,,0,0
+Measure 116 Amends Constitution: Establishes 'Independent Public Service Compensation Commission' to determine salaries for specified officials; eliminates legislative authority to set such salaries,Yes,,0,0
+Measure 117 Gives voters option to rank candidates in order of preference; candidate receiving majority of votes in final round wins,Yes,,0,0
+Measure 118 Increases highest corporate minimum taxes; distributes revenue to eligible individuals; state replaces reduced federal benefits,Yes,,0,0
+Measure 119 Cannabis retailers/processors must remain neutral regarding communications to their employees from labor organizations; penalties,Yes,,0,0
+Measure 115 Amends Constitution: Authorizes impeachment of statewide elected officials by Oregon Legislature with two-thirds vote by each House; establishes process,No,,0,0
+Measure 116 Amends Constitution: Establishes 'Independent Public Service Compensation Commission' to determine salaries for specified officials; eliminates legislative authority to set such salaries,No,,0,0
+Measure 117 Gives voters option to rank candidates in order of preference; candidate receiving majority of votes in final round wins,No,,0,0
+Measure 118 Increases highest corporate minimum taxes; distributes revenue to eligible individuals; state replaces reduced federal benefits,No,,0,0
+Measure 119 Cannabis retailers/processors must remain neutral regarding communications to their employees from labor organizations; penalties,No,,0,0
+State Treasurer,Mary King,"Working Families, Pacific Green",0,0
+State Treasurer,Brian J Boquist,"Republican, Constitution",0,0
+State Treasurer,Elizabeth Steiner,Democrat,0,0
+State Treasurer,Write-in,,0,0
+Attorney General,Will Lathrop,Republican,0,0
+Attorney General,Dan Rayfield,"Democrat, Working Families",0,0
+Attorney General,Write-in,,0,0
+"State Representative, 5th District",Katherine Green,Republican,0,0
+"State Representative, 5th District",Pam Marsh,"Democrat, Independent",0,0
+"State Representative, 5th District",Write-in,,0,0
+"State Representative, 6th District",Kim Wallan,Republican,0,0
+"State Representative, 6th District",Lilia Caballero,"Democrat, Independent",0,0
+"State Representative, 6th District",Write-in,,0,0
+"State Representative, 55th District",James Williamson,Democrat,0,0
+"State Representative, 55th District",E Werner Reschke,Republican,0,0
+"State Representative, 55th District",Write-in,,0,0
+"State Representative, 4th District",Richard Chasm,Democrat,0,0
+"State Representative, 4th District",Alek Skarlatos,Republican,0,0
+"State Representative, 4th District",Write-in,,0,0
+"State Representative, 1st District",Court Boice,Republican,0,0
+"State Representative, 1st District",Bret Cecil,Democrat,0,0
+"State Representative, 1st District",Write-in,,0,0
+"State Representative, 2nd District",August Warren,Democrat,0,0
+"State Representative, 2nd District",Virgle J Osborne,"Republican, Constitution",0,0
+"State Representative, 2nd District",Write-in,,0,0
+"State Representative, 3rd District",Dwayne Yunker,Republican,0,0
+"State Representative, 3rd District",Mark J Seligman,Democrat,0,0
 "State Representative, 3rd District",Write-in,,0,0
-"State Representative, 9th District",Boomer Wright,Republican,24,17.647058823529413
-"State Representative, 9th District",William (Mrk) Mrkvicka,Democrat,48,35.294117647058826
-"State Representative, 9th District",Write-in,,64,47.05882352941176
-"State Representative, 60th District",Mark Owens,"Republican, Democrat",131,53.2520325203252
-"State Representative, 60th District",Write-in,,115,46.7479674796748
-"State Senator, 1st District",Lupe Preciado-McAlister,Democrat,38,18.536585365853657
-"State Senator, 1st District",David Brock Smith,"Republican, Independent",71,34.63414634146341
-"State Senator, 1st District",Write-in,,96,46.82926829268293
-"State Senator, 2nd District",Tracy Thompson,Democrat,72,30.90128755364807
-"State Senator, 2nd District",Noah Robinson,Republican,78,33.47639484978541
-"State Senator, 2nd District",Write-in,,83,35.622317596566525
-"State Senator, 5th District",Jo Beaudreau,Democrat,103,21.914893617021278
-"State Senator, 5th District",Dick Anderson,Republican,206,43.829787234042556
-"State Senator, 5th District",Write-in,,161,34.25531914893617
-"State Senator, 28th District",Dylan Gutridge,Democrat,105,27.131782945736433
-"State Senator, 28th District",Diane Linthicum,Republican,129,33.33333333333333
-"State Senator, 28th District",Write-in,,153,39.53488372093023
-"State Senator, 30th District",Mike McLane,"Republican, Democrat",318,62.35294117647059
-"State Senator, 30th District",Write-in,,192,37.64705882352941
-Secretary of State,Nathalie Paravicini,"Pacific Green, Progressive",3972,17.42946158234236
-Secretary of State,Dennis Linthicum,"Republican, Constitution",4866,21.352406862960198
-Secretary of State,Tobias Read,"Democrat, Independent, Working Families",6360,27.908201325200753
-Secretary of State,Write-in,,7591,33.309930229496686
-State Treasurer,Mary King,"Working Families, Pacific Green",3978,17.455790074158585
-State Treasurer,Brian J Boquist,"Republican, Constitution",4860,21.32607837114397
-State Treasurer,Elizabeth Steiner,Democrat,6357,27.89503707929264
-State Treasurer,Write-in,,7594,33.3230944754048
-Attorney General,Will Lathrop,Republican,4308,27.29865027564793
-Attorney General,Dan Rayfield,"Democrat, Working Families",5320,33.71142513148723
-Attorney General,Write-in,,6153,38.98992459286484
+"State Representative, 9th District",Boomer Wright,Republican,0,0
+"State Representative, 9th District",William (Mrk) Mrkvicka,Democrat,0,0
+"State Representative, 9th District",Write-in,,0,0
+"State Representative, 60th District",Mark Owens,"Republican, Democrat",0,0
+"State Representative, 60th District",Write-in,,0,0
+"State Senator, 1st District",Lupe Preciado-McAlister,Democrat,0,0
+"State Senator, 1st District",David Brock Smith,"Republican, Independent",0,0
+"State Senator, 1st District",Write-in,,0,0
+"State Senator, 2nd District",Tracy Thompson,Democrat,0,0
+"State Senator, 2nd District",Noah Robinson,Republican,0,0
+"State Senator, 2nd District",Write-in,,0,0
+"State Senator, 5th District",Jo Beaudreau,Democrat,0,0
+"State Senator, 5th District",Dick Anderson,Republican,0,0
+"State Senator, 5th District",Write-in,,0,0
+"State Senator, 28th District",Dylan Gutridge,Democrat,0,0
+"State Senator, 28th District",Diane Linthicum,Republican,0,0
+"State Senator, 28th District",Write-in,,0,0
+"State Senator, 30th District",Mike McLane,"Republican, Democrat",0,0
+"State Senator, 30th District",Write-in,,0,0
