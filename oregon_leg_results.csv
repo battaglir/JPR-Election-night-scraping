@@ -1,4 +1,16 @@
 Race,Candidate,Party,Votes,Percent
+"State Representative, 5th District",Katherine Green,Republican,85,33.33333333333333
+"State Representative, 5th District",Pam Marsh,"Democrat, Independent",85,33.33333333333333
+"State Representative, 5th District",Write-in,,85,33.33333333333333
+"State Representative, 6th District",Kim Wallan,Republican,85,33.33333333333333
+"State Representative, 6th District",Lilia Caballero,"Democrat, Independent",85,33.33333333333333
+"State Representative, 6th District",Write-in,,85,33.33333333333333
+"State Representative, 55th District",James Williamson,Democrat,28,18.181818181818183
+"State Representative, 55th District",E Werner Reschke,Republican,51,33.116883116883116
+"State Representative, 55th District",Write-in,,75,48.701298701298704
+"State Representative, 4th District",Richard Chasm,Democrat,72,30.90128755364807
+"State Representative, 4th District",Alek Skarlatos,Republican,78,33.47639484978541
+"State Representative, 4th District",Write-in,,83,35.622317596566525
 "State Representative, 1st District",Court Boice,Republican,15,18.29268292682927
 "State Representative, 1st District",Bret Cecil,Democrat,30,36.58536585365854
 "State Representative, 1st District",Write-in,,37,45.1219512195122
@@ -8,21 +20,9 @@ Race,Candidate,Party,Votes,Percent
 "State Representative, 3rd District",Dwayne Yunker,Republican,1,50.0
 "State Representative, 3rd District",Mark J Seligman,Democrat,1,50.0
 "State Representative, 3rd District",Write-in,,0,0
-"State Representative, 4th District",Richard Chasm,Democrat,72,30.90128755364807
-"State Representative, 4th District",Alek Skarlatos,Republican,78,33.47639484978541
-"State Representative, 4th District",Write-in,,83,35.622317596566525
-"State Representative, 5th District",Katherine Green,Republican,85,33.33333333333333
-"State Representative, 5th District",Pam Marsh,"Democrat, Independent",85,33.33333333333333
-"State Representative, 5th District",Write-in,,85,33.33333333333333
-"State Representative, 6th District",Kim Wallan,Republican,85,33.33333333333333
-"State Representative, 6th District",Lilia Caballero,"Democrat, Independent",85,33.33333333333333
-"State Representative, 6th District",Write-in,,85,33.33333333333333
 "State Representative, 9th District",Boomer Wright,Republican,24,17.647058823529413
 "State Representative, 9th District",William (Mrk) Mrkvicka,Democrat,48,35.294117647058826
 "State Representative, 9th District",Write-in,,64,47.05882352941176
-"State Representative, 55th District",James Williamson,Democrat,28,18.181818181818183
-"State Representative, 55th District",E Werner Reschke,Republican,51,33.116883116883116
-"State Representative, 55th District",Write-in,,75,48.701298701298704
 "State Representative, 60th District",Mark Owens,"Republican, Democrat",131,53.2520325203252
 "State Representative, 60th District",Write-in,,115,46.7479674796748
 "State Senator, 1st District",Lupe Preciado-McAlister,Democrat,38,18.536585365853657
