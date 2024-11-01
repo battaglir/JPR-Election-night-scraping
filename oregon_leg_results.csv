@@ -1,15 +1,15 @@
 Race,Candidate,Party,Votes,Percent
-Secretary of State,Nathalie Paravicini,"Pacific Green, Progressive",0,0
-Secretary of State,Dennis Linthicum,"Republican, Constitution",0,0
-Secretary of State,Tobias Read,"Democrat, Independent, Working Families",0,0
-Secretary of State,Write-in,,0,0
-State Treasurer,Mary King,"Working Families, Pacific Green",0,0
-State Treasurer,Brian J Boquist,"Republican, Constitution",0,0
-State Treasurer,Elizabeth Steiner,Democrat,0,0
-State Treasurer,Write-in,,0,0
-Attorney General,Will Lathrop,Republican,0,0
-Attorney General,Dan Rayfield,"Democrat, Working Families",0,0
-Attorney General,Write-in,,0,0
+Secretary of State,Nathalie Paravicini,"Pacific Green, Progressive",115,62.5
+Secretary of State,Dennis Linthicum,"Republican, Constitution",23,12.5
+Secretary of State,Tobias Read,"Democrat, Independent, Working Families",23,12.5
+Secretary of State,Write-in,,23,12.5
+State Treasurer,Mary King,"Working Families, Pacific Green",115,62.5
+State Treasurer,Brian J Boquist,"Republican, Constitution",23,12.5
+State Treasurer,Elizabeth Steiner,Democrat,23,12.5
+State Treasurer,Write-in,,23,12.5
+Attorney General,Will Lathrop,Republican,138,75.0
+Attorney General,Dan Rayfield,"Democrat, Working Families",23,12.5
+Attorney General,Write-in,,23,12.5
 "State Representative, 5th District",Katherine Green,Republican,0,0
 "State Representative, 5th District",Pam Marsh,"Democrat, Independent",0,0
 "State Representative, 5th District",Write-in,,0,0
@@ -48,5 +48,5 @@ Attorney General,Write-in,,0,0
 "State Senator, 28th District",Dylan Gutridge,Democrat,0,0
 "State Senator, 28th District",Diane Linthicum,Republican,0,0
 "State Senator, 28th District",Write-in,,0,0
-"State Senator, 30th District",Mike McLane,"Republican, Democrat",0,0
-"State Senator, 30th District",Write-in,,0,0
+"State Senator, 30th District",Mike McLane,"Republican, Democrat",161,87.5
+"State Senator, 30th District",Write-in,,23,12.5
