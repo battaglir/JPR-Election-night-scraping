@@ -1,15 +1,15 @@
 Race,Candidate,Party,Votes,Percent
-Secretary of State,Nathalie Paravicini,"Pacific Green, Progressive",122,53.98230088495575
-Secretary of State,Dennis Linthicum,"Republican, Constitution",37,16.371681415929203
-Secretary of State,Tobias Read,"Democrat, Independent, Working Families",30,13.274336283185843
-Secretary of State,Write-in,,37,16.371681415929203
-State Treasurer,Mary King,"Working Families, Pacific Green",122,53.98230088495575
-State Treasurer,Brian J Boquist,"Republican, Constitution",37,16.371681415929203
-State Treasurer,Elizabeth Steiner,Democrat,30,13.274336283185843
-State Treasurer,Write-in,,37,16.371681415929203
-Attorney General,Will Lathrop,Republican,145,68.39622641509435
-Attorney General,Dan Rayfield,"Democrat, Working Families",37,17.452830188679243
-Attorney General,Write-in,,30,14.150943396226415
+Secretary of State,Nathalie Paravicini,"Pacific Green, Progressive",0,0
+Secretary of State,Dennis Linthicum,"Republican, Constitution",0,0
+Secretary of State,Tobias Read,"Democrat, Independent, Working Families",0,0
+Secretary of State,Write-in,,0,0
+State Treasurer,Mary King,"Working Families, Pacific Green",0,0
+State Treasurer,Brian J Boquist,"Republican, Constitution",0,0
+State Treasurer,Elizabeth Steiner,Democrat,0,0
+State Treasurer,Write-in,,0,0
+Attorney General,Will Lathrop,Republican,0,0
+Attorney General,Dan Rayfield,"Democrat, Working Families",0,0
+Attorney General,Write-in,,0,0
 "State Representative, 5th District",Katherine Green,Republican,0,0
 "State Representative, 5th District",Pam Marsh,"Democrat, Independent",0,0
 "State Representative, 5th District",Write-in,,0,0
@@ -48,5 +48,5 @@ Attorney General,Write-in,,30,14.150943396226415
 "State Senator, 28th District",Dylan Gutridge,Democrat,0,0
 "State Senator, 28th District",Diane Linthicum,Republican,0,0
 "State Senator, 28th District",Write-in,,0,0
-"State Senator, 30th District",Mike McLane,"Republican, Democrat",161,87.5
-"State Senator, 30th District",Write-in,,23,12.5
+"State Senator, 30th District",Mike McLane,"Republican, Democrat",0,0
+"State Senator, 30th District",Write-in,,0,0
