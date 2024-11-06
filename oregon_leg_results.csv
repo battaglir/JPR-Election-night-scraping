@@ -1,52 +1,52 @@
 Race,Candidate,Party,Votes,Percent
-Secretary of State,Nathalie Paravicini,"Pacific Green, Progressive",0,0
-Secretary of State,Dennis Linthicum,"Republican, Constitution",0,0
-Secretary of State,Tobias Read,"Democrat, Independent, Working Families",0,0
-Secretary of State,Write-in,,0,0
-State Treasurer,Mary King,"Working Families, Pacific Green",0,0
-State Treasurer,Brian J Boquist,"Republican, Constitution",0,0
-State Treasurer,Elizabeth Steiner,Democrat,0,0
-State Treasurer,Write-in,,0,0
-Attorney General,Will Lathrop,Republican,0,0
-Attorney General,Dan Rayfield,"Democrat, Working Families",0,0
-Attorney General,Write-in,,0,0
-"State Representative, 5th District",Katherine Green,Republican,0,0
-"State Representative, 5th District",Pam Marsh,"Democrat, Independent",0,0
-"State Representative, 5th District",Write-in,,0,0
-"State Representative, 6th District",Kim Wallan,Republican,0,0
-"State Representative, 6th District",Lilia Caballero,"Democrat, Independent",0,0
-"State Representative, 6th District",Write-in,,0,0
-"State Representative, 55th District",James Williamson,Democrat,0,0
-"State Representative, 55th District",E Werner Reschke,Republican,0,0
-"State Representative, 55th District",Write-in,,0,0
-"State Representative, 4th District",Richard Chasm,Democrat,0,0
-"State Representative, 4th District",Alek Skarlatos,Republican,0,0
-"State Representative, 4th District",Write-in,,0,0
-"State Representative, 1st District",Court Boice,Republican,0,0
-"State Representative, 1st District",Bret Cecil,Democrat,0,0
-"State Representative, 1st District",Write-in,,0,0
-"State Representative, 2nd District",August Warren,Democrat,0,0
-"State Representative, 2nd District",Virgle J Osborne,"Republican, Constitution",0,0
-"State Representative, 2nd District",Write-in,,0,0
+Secretary of State,Nathalie Paravicini,"Pacific Green, Progressive",28609,2.8097264521274035
+Secretary of State,Dennis Linthicum,"Republican, Constitution",398410,39.128355265548564
+Secretary of State,Tobias Read,"Democrat, Independent, Working Families",590190,57.96331415921816
+Secretary of State,Write-in,,1004,0.09860412310587274
+State Treasurer,Mary King,"Working Families, Pacific Green",60937,6.0216925998905095
+State Treasurer,Brian J Boquist,"Republican, Constitution",408306,40.34811721435079
+State Treasurer,Elizabeth Steiner,Democrat,541766,53.53641159020434
+State Treasurer,Write-in,,949,0.09377859555436095
+Attorney General,Will Lathrop,Republican,490831,42.98036145707183
+Attorney General,Dan Rayfield,"Democrat, Working Families",649911,56.91044309533629
+Attorney General,Write-in,,1247,0.10919544759187699
+"State Representative, 5th District",Katherine Green,Republican,12649,35.90609742250482
+"State Representative, 5th District",Pam Marsh,"Democrat, Independent",22546,64.00022709208584
+"State Representative, 5th District",Write-in,,33,0.09367548540933349
+"State Representative, 6th District",Kim Wallan,Republican,16333,58.23439227011802
+"State Representative, 6th District",Lilia Caballero,"Democrat, Independent",11674,41.622989981103146
+"State Representative, 6th District",Write-in,,40,0.14261774877883554
+"State Representative, 55th District",James Williamson,Democrat,2751,21.63756488909863
+"State Representative, 55th District",E Werner Reschke,Republican,9948,78.2444549315715
+"State Representative, 55th District",Write-in,,15,0.11798017932987258
+"State Representative, 4th District",Richard Chasm,Democrat,7223,30.19901329542604
+"State Representative, 4th District",Alek Skarlatos,Republican,16644,69.58775817376035
+"State Representative, 4th District",Write-in,,51,0.21322853081361318
+"State Representative, 1st District",Court Boice,Republican,18807,65.63710606219244
+"State Representative, 1st District",Bret Cecil,Democrat,9776,34.11859142149164
+"State Representative, 1st District",Write-in,,70,0.24430251631591807
+"State Representative, 2nd District",August Warren,Democrat,7029,29.604515014951776
+"State Representative, 2nd District",Virgle J Osborne,"Republican, Constitution",16667,70.19753190414016
+"State Representative, 2nd District",Write-in,,47,0.1979530809080571
 "State Representative, 3rd District",Dwayne Yunker,Republican,0,0
 "State Representative, 3rd District",Mark J Seligman,Democrat,0,0
 "State Representative, 3rd District",Write-in,,0,0
-"State Representative, 9th District",Boomer Wright,Republican,0,0
-"State Representative, 9th District",William (Mrk) Mrkvicka,Democrat,0,0
-"State Representative, 9th District",Write-in,,0,0
-"State Representative, 60th District",Mark Owens,"Republican, Democrat",0,0
-"State Representative, 60th District",Write-in,,0,0
-"State Senator, 1st District",Lupe Preciado-McAlister,Democrat,0,0
-"State Senator, 1st District",David Brock Smith,"Republican, Independent",0,0
-"State Senator, 1st District",Write-in,,0,0
-"State Senator, 2nd District",Tracy Thompson,Democrat,0,0
-"State Senator, 2nd District",Noah Robinson,Republican,0,0
-"State Senator, 2nd District",Write-in,,0,0
-"State Senator, 5th District",Jo Beaudreau,Democrat,0,0
-"State Senator, 5th District",Dick Anderson,Republican,0,0
-"State Senator, 5th District",Write-in,,0,0
-"State Senator, 28th District",Dylan Gutridge,Democrat,0,0
-"State Senator, 28th District",Diane Linthicum,Republican,0,0
-"State Senator, 28th District",Write-in,,0,0
-"State Senator, 30th District",Mike McLane,"Republican, Democrat",0,0
-"State Senator, 30th District",Write-in,,0,0
+"State Representative, 9th District",Boomer Wright,Republican,16028,60.57674137344571
+"State Representative, 9th District",William (Mrk) Mrkvicka,Democrat,10372,39.2002721191277
+"State Representative, 9th District",Write-in,,59,0.22298650742658455
+"State Representative, 60th District",Mark Owens,"Republican, Democrat",14412,98.67177872107354
+"State Representative, 60th District",Write-in,,194,1.3282212789264687
+"State Senator, 1st District",Lupe Preciado-McAlister,Democrat,15952,30.50562227491777
+"State Senator, 1st District",David Brock Smith,"Republican, Independent",36193,69.21326397919375
+"State Senator, 1st District",Write-in,,147,0.28111374588847243
+"State Senator, 2nd District",Tracy Thompson,Democrat,7294,30.260537670096248
+"State Senator, 2nd District",Noah Robinson,Republican,16774,69.59010952538998
+"State Senator, 2nd District",Write-in,,36,0.14935280451377364
+"State Senator, 5th District",Jo Beaudreau,Democrat,16188,43.43556306850197
+"State Senator, 5th District",Dick Anderson,Republican,21032,56.43296036920765
+"State Senator, 5th District",Write-in,,49,0.13147656229037538
+"State Senator, 28th District",Dylan Gutridge,Democrat,10474,26.47824658088328
+"State Senator, 28th District",Diane Linthicum,Republican,29015,73.3498495841444
+"State Senator, 28th District",Write-in,,68,0.17190383497231843
+"State Senator, 30th District",Mike McLane,"Republican, Democrat",13967,98.95848094090974
+"State Senator, 30th District",Write-in,,147,1.041519059090265
