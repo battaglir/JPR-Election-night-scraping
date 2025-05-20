@@ -42,7 +42,7 @@ csv_headers = ["Measure", "Yes Votes", "Yes %", "No Votes", "No %"]
 
 #Set the raceIDs for the measures we want to track
 #NOTE: You will need to update this list with the correct raceIDs for future elections.
-oregon_measure_ids = ["300001495", "300001493", "300001517"]
+oregon_measure_ids = ["300001495", "300001493", "300001517", "300001541"]
 
 # Write the measures data to the CSV file
 with open(csv_filename, mode='w', newline='') as file:
