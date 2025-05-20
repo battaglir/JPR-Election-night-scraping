@@ -32,7 +32,6 @@ latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p"
 # Grab the local ballot measures in Oregon
 
 # Define the filename for the JSON data with the current timestamp
-os.makedirs('jsons', exist_ok=True)
 latest_file_name = f"jsons/oregon_measures_{timenow}.json"
 
 # Define the CSV filename
