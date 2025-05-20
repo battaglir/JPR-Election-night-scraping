@@ -31,6 +31,10 @@ latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p"
 # %%
 # Grab the local ballot measures in Oregon
 
+# Ensure the 'jsons' directory exists
+if not os.path.exists('jsons'):
+    os.makedirs('jsons')
+
 # Define the filename for the JSON data with the current timestamp
 latest_file_name = f"jsons/oregon_measures_{timenow}.json"
 
