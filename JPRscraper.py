@@ -114,7 +114,7 @@ print("California Proposition data updated in Datawrapper")
 #Set the API url to grab all the state legislature districts in our region
 #NOTE: Change this API URL to the correct one for the current election, which could change in the future. Found at https://www.sos.ca.gov/media.
 #You will also need to change the race IDs to reflect the races you want to grab for the current election. I found those in the API Endpoints CSV file provided by the Cal SOS.
-#The first half of the document had api's with words, and those correspond to another URL in the second half with a number for that race. They're both int he same order, so find the matching URL.
+#The first half of the document had api's with words, and those correspond to another URL in the second half with a number for that race. They're both in the same order, so find the matching URL.
 r = requests.get('https://api.sos.ca.gov/returns/query?r=["13000001000059","13000002000059","13000003000059","12000001000059"]')
 
 #Call the API
@@ -207,7 +207,7 @@ print("California State Legislature data updated in Datawrapper")
 # Grab the statewide measures in Oregon
 
 #Set the URL to the call the Oregon results API for all statewide measures
-#NOTE: This API URL may change for future elections, so you will need to update it to the correct URL for the current election. Reach out to the PIO for the Oregon SOS before the election. They did not have documentation available for the data feed.
+#NOTE: This API URL may change for future elections, so you will need to update it to the correct URL for the current election. Reach out to the PIO for the Oregon SOS before the election. They did not have documentation available for the data feed. Also check the readme for a guide
 # I found the right code by messing around with the URL and seeing what worked. I found that getting the type right was important, it matched up with the type in the URL of the https://results.oregonvotes.gov webpage. The other categories are all needed or results won't show up. Party can be changed to "DEM" or "REP" 
 r = requests.get("https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=MEASURE&category=SW&raceID=0&osn=0&county=0&party=0")
 

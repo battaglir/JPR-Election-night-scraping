@@ -14,7 +14,7 @@ This program is designed to scrape and process election results for various race
 ## Files
 
 - **JPRscraper.py**: A Python script that handles the scraping and processing of statewide measure results for Oregon and California.
-- **Mayscraper.py**: A new python script to handle scraping and processing of results for the Mary primary in Oregon
+- **Mayscraper.py**: A new python script to handle scraping and processing of results for the May primary in Oregon
 - **oregon_raceids.txt**: A text file containing the race IDs for the races being tracked.
 - **oregon_leg_results.csv**: A CSV file that stores the latest legislative race results for Oregon.
 - **oregon_measure_results.csv**: A CSV file that stores the latest statewide measure results for Oregon.

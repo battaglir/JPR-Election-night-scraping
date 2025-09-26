@@ -1,10 +1,10 @@
 # %% [markdown]
 # Election Scraper and results graphs
 # 
-# This program will scrape the results for specific contests in Oregon and California, organize the data, push the data to a Datawrapper graph and automatically update the graph with the latest data.
-# This program was built for the 2024 General Election. It may need to be modified in the future to work with other elections. Places where the program may need to be updated are noted in the comments.
+# This program will scrape the results for specific contests in Oregon, organize the data, push the data to a Datawrapper graph and automatically update the graph with the latest data.
+# This program was built for the 2025 May primary. It may need to be modified in the future to work with other elections. Places where the program may need to be updated are noted in the comments.
 # Licensed under a GNU General Public License v3.0
-# Code written by Roman Battaglia, 2024.
+# Code written by Roman Battaglia, 2025.
 
 # %%
 #Import the required packages
@@ -54,7 +54,7 @@ with open(csv_filename, mode='w', newline='') as file:
     writer.writeheader()
 
 #Set the URL to the call the Oregon results API for all statewide measures
-#NOTE: This API URL may change for future elections, so you will need to update it to the correct URL for the current election. Reach out to the PIO for the Oregon SOS before the election. They did not have documentation available for the data feed.
+#NOTE: This API URL may change for future elections, so you will need to update it to the correct URL for the current election. Reach out to the PIO for the Oregon SOS before the election. They did not have documentation available for the data feed. Also check the readme
 # I found the right code by messing around with the URL and seeing what worked. I found that getting the type right was important, it matched up with the type in the URL of the https://results.oregonvotes.gov webpage. The other categories are all needed or results won't show up. Party can be changed to "DEM" or "REP" 
 
 for raceids in oregon_measure_ids:
