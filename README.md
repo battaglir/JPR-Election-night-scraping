@@ -84,7 +84,7 @@ NEEDS to be filled in
 - SENATE = State senate races
 
 Category options:
-NEEDS a category for races ofhter than LMEA, MCR and MEASURE
+NEEDS a category for races other than MCR and MEASURE
 - CTY = County
 - SW = Statewide
 - Maybe more?

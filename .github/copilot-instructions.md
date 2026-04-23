@@ -14,8 +14,8 @@ This is an **election results scraping and visualization system** that:
 
 ### Two Main Scripts (Election-Specific)
 
-1. **`JPRscraper.py`** - General election scraper (Nov 2024)
-2. **`Mayscraper.py`** - May primary scraper (May 2025)
+1. **`JPRscraper.py`** - November General election scraper (Nov 2024)
+2. **`Mayscraper.py`** - A scraper specifically for the May primary election in Oregon (May 2025)
 
 Each follows the same pattern but with election-specific race IDs and API parameters.
 
@@ -35,11 +35,23 @@ API Request → JSON Storage (jsons/*.json) → CSV Processing → Datawrapper U
 - Iterative approach: one API call per race ID
 - URL format: `https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=TYPE&category=CATEGORY&raceID=ID&osn=0&county=0&party=0`
 - Race IDs read from `oregon_raceids.txt` or hardcoded arrays
+All of the following need to be inputted to access results: `type`, `category`, `raceID`, `osn`, `party` & `county`
 - Critical `type` parameter values:
   - `MEASURE` - Statewide measures
   - `LMEA` - Local measures (requires specific raceID + category=CTY)
+  - `MCR` - Shared county, city and district races & measures
   - `HOUSE` / `SENATE` - State legislature
   - `SWPAR` - Statewide partisan races
+- `category` parameter also required for races other than `MCR` and `MEASURE`
+  - `CTY` for city
+  - `SW` for statewide
+- `raceID` can be set to `0` to fetch all races, but specifying a known raceID will list just that race
+- `osn` should remain at `0` for all requests
+- Critical `party` parameter values:
+    - `0` for all parties
+    - `DEM` for Democratic
+    - `REP` for Republican 
+- `county` should be set to `0` to fetch all counties, specific numbers can be used to filter by county but are not necessary for statewide measures. But that only works for `CTYALL` type races.
 
 **Oregon API Quirk**: Yes/No votes for measures are returned as separate "candidates" in the response. Code must iterate through all candidates for a measure, match by `RaceID`, and combine Yes/No data.
 
