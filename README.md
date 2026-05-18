@@ -76,6 +76,7 @@ All of the following need to be inputted to access results: type, category, race
 Type options:
 NEEDS to be filled in
 - SWPAR = Statewide partisan races (Governor, Sec of State, Attorney General, etc.)
+- FED = Congressional Races
 - MEASURE = Statewide measures
 - CTYALL = All county races
 - LMEA = Local measures, use Category CTY to access Yes and no candidates, only works with specific RaceID and county = 0, find raceIDs by exporting list on results frontend
