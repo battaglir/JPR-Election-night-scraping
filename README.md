@@ -25,7 +25,7 @@ This program is designed to scrape and process election results for various race
 
 1. **Setup**: Ensure you have the necessary Python packages installed. You can install the required packages using:
     ```sh
-    pip install requests, datawrapper
+    -m pip install requests, datawrapper, pytz, pandas
     ```
 
 2. **Run the Script**: Execute the `JPRscraper.py` script to fetch and process the statewide results:
@@ -35,7 +35,7 @@ This program is designed to scrape and process election results for various race
 
 3. **View Results**: The results will be saved in JSON and CSV files in the same directory.
 
-Note: This program does not CREATE the datawrapper graphs initially, I reccomend running the scraping parts first, then taking the CSVs and manually creating graphs in Datawrapper, then copying the ID's and pasting them in the script so it can auto-update from then on.
+Note: This program does not CREATE the datawrapper graphs initially, I recomend running the scraping parts first, then taking the CSVs and manually creating graphs in Datawrapper, then copying the ID's and pasting them in the script so it can auto-update from then on.
 
 ## Running automatically
 
@@ -66,6 +66,11 @@ Then once you enable the job, it should run. You can manually run it to test it 
 - Ensure that the `oregon_raceids.txt` file is present in the same directory as the scripts. Make sure you have the right raceIDs for the races you want to track.
 - The program uses the current date and time to generate filenames for the JSON files, ensuring that each run produces a unique file.
 - This program cannot be used out of the box, you will need to make some changes to adjust for your specific needs, including adding a DataWrapper API key. Those are mostly all noted in comments in the script.
+
+## California URL Info
+
+California makes things pretty easy. There is a guide available at [https://www.sos.ca.gov/media](https://www.sos.ca.gov/media). In the API endpoints document, you can find the direct links to results for every race. Below those there are also race ID URLS. If you find the right URLs, you can combine them into one to get all the results you need in one request. For example [https://api.sos.ca.gov/returns/query?r=[%2203000000000059%22,%20%2202000000000059%22]](https://api.sos.ca.gov/returns/query?r=[%2203000000000059%22,%20%2202000000000059%22]) will return the statewide results for governor and lieutenant governor. (%22 is replaced with quotes and %20 is a space)
+In the past, I've pulled all the candidate races I needed in one URL, and then searched the results to get the data I needed. and for propositions I just pulled them all with [https://api.sos.ca.gov/returns/ballot-measures)](https://api.sos.ca.gov/returns/ballot-measures)
 
 ## Oregon URL info
 
