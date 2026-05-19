@@ -69,7 +69,7 @@ Then once you enable the job, it should run. You can manually run it to test it 
 
 ## Oregon URL info
 
-(Accurate as of 5/20/2025)
+(Accurate as of 5/19/2026)
 The Oregon base URL is [https://orresultswebservices.azureedge.us](https://orresultswebservices.azureedge.us)
 To access results, you need to input certain codes, after the heading "/ResultsAjax.svc/GetMapData?"
 All of the following need to be inputted to access results: type, category, raceID, osn, party & county
@@ -86,26 +86,33 @@ NEEDS to be filled in
 
 Category options:
 NEEDS a category for races other than MCR and MEASURE
-- CTY = County
-- SW = Statewide
+- CTY = County (Includes CTYALL, LMEA types)
+- SW = Statewide (includes SWPAR, FED, HOUSE and SENATE types)
 - Maybe more?
 
 raceID:
 Leave at 0 to show all counties
 Can be changed to show just the candidates in one race specifically. raceID's can be found by loading all results, looking at one candidate, and looking at the RaceID, or by exporting the results from [results.oregonvotes.gov](results.oregonvotes.gov) and looking at the RaceID there.
 
+It appears you can access all the races available in one JSON with the URL [https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=SW&raceID=0&osn=0&county=0&party=0](https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=SW&raceID=0&osn=0&county=0&party=0)
+This shows all of the race results seperated by county. But the race ID fo the races is the same from other pulls so you can search the JSON to find the race you need.
+
 osn:
-I believe stands for "Office Sequence Number," leave this at "0"
+Stands for "Office Sequence Number," leave this at "0"
 
 party:
 0 for all parties, DEM for Democrat, REP for republican
 
 county: 
 Leave at 0 for all counties
-I don't know all the counties yet, but here's what I have, can find more by doing full search of all county races
-03 = Jackson
+I don't know all the counties yet, but here are the one's in JPR region. You can find more by doing full search of all county races
+01 = Josephine
 02 = Curry
+03 = Jackson
+04 = Coos
 05 = Klamath
+06 = Lake
+07 = Douglas
 This does not work for LMEA type, possible only works for CTYALL type
 
 ## License

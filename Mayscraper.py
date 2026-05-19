@@ -50,7 +50,7 @@ with open(csv_filename, mode='w', newline='') as file:
     writer.writeheader()
 
 #Grab the statewide measure data
-#NOTE: This is for Measure 102, the gas tax.
+#This is for Measure 102, the gas tax.
 r = requests.get(f"https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=MEASURE&category=SW&raceID=300001646&osn=0&county=0&party=0")
 
 #Call the API
@@ -124,7 +124,7 @@ for measure in measures[:1]:
             "No %": no_percent
         })
 
-#NOTE: This is for The Ashland School District measure
+#This is for The Ashland School District measure
 r = requests.get(f"https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=CTY&raceID=300001691&osn=0&county=0&party=0")
 
 #Call the API
