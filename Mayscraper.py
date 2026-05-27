@@ -1146,10 +1146,15 @@ print("Curry County Commissioner races data updated in Datawrapper")
 #%%
 
 # Delete any JSON files in the directory that are older than 24 hours
-now = datetime.datetime.now(tz=pacific_tz)
+now = datetime.datetime.now(tz=pacific_tz).strftime("%m-%d")
+print(f"Checking for old files to delete...")
+print(f"Current date: "+now)
 for filename in os.listdir('jsons/.'):
-    if filename.endswith('.json'):
-        file_time = datetime.datetime.fromtimestamp(os.path.getmtime(f'jsons/{filename}'), tz=pacific_tz)
-        if (now - file_time).total_seconds() > 24 * 3600:
-            os.remove(f'jsons/{filename}')
-            print(f"Deleted old file: {filename}")
+	print(f"Checking file: "+filename)
+	if filename.endswith('.json'):
+		file_date = re.search("-(\d{2}-\d{2})", filename)
+		if file_date.group(1) != now:
+			os.remove(f'jsons/{filename}')
+			print(f"Deleted old file: {filename}")
+		else:
+			print(f"File is current, not deleting: {filename}")
