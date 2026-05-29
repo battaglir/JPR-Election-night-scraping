@@ -118,9 +118,9 @@ for race in calraces:
 #import requests, time, json, datetime, csv
 
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36',
-    'Accept-Language': 'en-US,en;q=0.5',
-    'Accept-Encoding': 'gzip, deflate, br',  # You can add more headers if needed
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Accept-Encoding': 'gzip, deflate, br, zstd',  # You can add more headers if needed
 }
 
 url = "https://results.enr.clarityelections.com/CA/Shasta/126486/373172/json/en/summary.json"
