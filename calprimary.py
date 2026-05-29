@@ -4,7 +4,7 @@
 # Licensed under a GNU General Public License v3.0
 # Code written by Roman Battaglia, 2024.
 
-import requests, datetime, json, csv, re, os, pytz, pandas as pd
+import requests, datetime, json, csv, re, os, pytz, time, pandas as pd
 from datawrapper import Datawrapper
 
 #Set the timezone
@@ -110,9 +110,134 @@ for race in calraces:
     dw.update_metadata(race.get("Key"), metadata=metadata)
     dw.publish_chart(race.get("Key"))
 
-
+# %%
 # Update the Shasta County results with the same process as above, but with a different API endpoint
+import requests, time, json, datetime, csv
 
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'Accept-Encoding': 'gzip, deflate, br',  # You can add more headers if needed
+}
+
+url = "https://results.enr.clarityelections.com/CA/Shasta/126486/373172/json/en/summary.json"
+retry_count = 5  # Number of retries if request fails
+retry_delay = 5  # Delay between retries in seconds
+
+for i in range(retry_count):
+    try:
+        r = requests.get(url, headers=headers)
+        if r.status_code == 202:
+            print("Received 202 response, retrying...")
+            time.sleep(retry_delay)
+            continue
+        r.raise_for_status()
+        print("Request successful")
+        break
+    except requests.exceptions.HTTPError as errh:
+        print("Http Error:", errh)
+        print(f"Retrying in {retry_delay} seconds...")
+        time.sleep(retry_delay)
+    except requests.exceptions.ConnectionError as errc:
+        print("Error Connecting:", errc)
+        print(f"Retrying in {retry_delay} seconds...")
+        time.sleep(retry_delay)
+    except requests.exceptions.Timeout as errt:
+        print("Timeout Error:", errt)
+        print(f"Retrying in {retry_delay} seconds...")
+        time.sleep(retry_delay)
+    except requests.exceptions.RequestException as err:
+        print("OOps: Something Else", err)
+        print(f"Retrying in {retry_delay} seconds...")
+        time.sleep(retry_delay)
+else:
+    print("Max retries exceeded. Exiting...")
+    
+# Import the JSON
+print(r.status_code)
+r.raise_for_status()
+print(r.headers)
+print(r.text)
+if not r.content:
+    print("There's no data available")
+
+#Converts the raw data to a JSON file
+data = r.json()
+
+# parses the raw python data into JSON data
+json_object = json.dumps(data, indent=4)
+
+# set the current date and time
+timenow = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
+
+#set the name of the file
+latest_file_name = f"jsons/shasta_results_{timenow}.json"
+
+# write output to file
+with open(latest_file_name, "w") as outfile:
+    json.dump(data, outfile)
+
+#Print out the name of the latest file
+print("Latest filename:", latest_file_name)
+
+# Read the watched contests
+with open('watched_contests.txt', 'r') as f:
+     watched_contests = [line.strip() for line in f.readlines()]
+
+# Open the JSON file
+with open(latest_file_name, 'r') as f:
+     data = json.load(f)
+
+# Iterate through the JSON data
+for contest in data:
+     # If the contest's name is in the watched contests list
+     if contest['C'] in watched_contests:
+          # Extract the 'C', 'CH', 'PCT', and 'V' values
+          c_value = contest.get('C')
+          ch_value = [name.title() for name in contest.get('CH', [])]
+          pct_value = contest.get('PCT')
+          v_value = contest.get('V')
+
+          # Prepare the data for writing to CSV
+          rows = zip(ch_value, v_value, pct_value)
+
+          # Set the name of the CSV file to match the contest
+          clean_name = f"{c_value}_results_clean.csv"
+
+          # Write to CSV
+          with open(clean_name, 'w', newline='') as f:
+               writer = csv.writer(f)
+               if c_value == "Measure B":
+                    writer.writerow(["Result", "Votes", "Percent"])
+               else:
+                    writer.writerow(["Candidate", "Votes", "Percent"])  # Write header
+               for row in rows:
+                    writer.writerow(row)  # Write data rows
+
+# %%
+#Update the datawrapper charts
+
+with open('jsons/shastaraces.json') as f:
+    calraces = json.load(f)
+
+latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p")
+
+# Update the Datawrapper charts with the new data
+for race in calraces:
+    print(f"Updating {race.get('filename')}")
+    try:
+        new_data = pd.read_csv(race.get("filename"), encoding="utf-8-sig")
+    except UnicodeDecodeError:
+        new_data = pd.read_csv(race.get("filename"), encoding="cp1252")
+    dw.add_data(chart_id=race.get("Key"), data=new_data)
+    metadata = {
+                "annotate": {
+                    #NOTE: Change "PST" to "PDT" if the current time is in Daylight Saving Time
+                    "notes": f"Last updated: {latest_time} PDT"
+                }
+            }
+    dw.update_metadata(race.get("Key"), metadata=metadata)
+    dw.publish_chart(race.get("Key"))
 
 # %%
 #Delete any .csv files older than 24 hours
