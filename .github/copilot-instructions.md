@@ -16,6 +16,7 @@ This is an **election results scraping and visualization system** that:
 
 1. **`JPRscraper.py`** - November General election scraper (Nov 2024)
 2. **`Mayscraper.py`** - A scraper specifically for the May primary election in Oregon (May 2025)
+3. **`calprimary.py`** - A scraper specifically for the June primary election in California (June 2026)
 
 Each follows the same pattern but with election-specific race IDs and API parameters.
 
@@ -35,6 +36,7 @@ API Request → JSON Storage (jsons/*.json) → CSV Processing → Datawrapper U
 - Iterative approach: one API call per race ID
 - URL format: `https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=TYPE&category=CATEGORY&raceID=ID&osn=0&county=0&party=0`
 - Race IDs read from `oregon_raceids.txt` or hardcoded arrays
+
 All of the following need to be inputted to access results: `type`, `category`, `raceID`, `osn`, `party` & `county`
 - Critical `type` parameter values:
   - `MEASURE` - Statewide measures
@@ -134,7 +136,7 @@ python Mayscraper.py  # or JPRscraper.py
 ```
 
 ### Automated Execution
-- GitHub Action: [.github/workflows/scraper-app.yml](\workflows\scraper-app.yml)
+- GitHub Action: [.github/workflows/scraper-app.yml](.github/workflows/scraper-app.yml)
 - Triggered by: cron-job.org via workflow_dispatch (more reliable than GitHub's built-in scheduler)
 - Default: 3 minutes past every hour
 - Timeout: 5 minutes
