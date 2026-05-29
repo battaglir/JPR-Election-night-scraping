@@ -160,8 +160,6 @@ else:
 # Import the JSON
 print(r.status_code)
 r.raise_for_status()
-print(r.headers)
-print(r.text)
 if not r.content:
     print("There's no data available")
 
@@ -224,7 +222,7 @@ for contest in data:
 #Update the datawrapper charts
 
 #open the JSON file with the list of CSV files and their corresponding Datawrapper chart keys
-with open('jsons/shastaraces.json') as f:
+with open('shastaraces.json') as f:
     calraces = json.load(f)
 
 #Set the latest time for the annotation in the Datawrapper charts
