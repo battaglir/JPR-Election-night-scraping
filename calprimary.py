@@ -109,7 +109,10 @@ for race in calraces:
                     "notes": f"Last updated: {latest_time} PDT"
                 }
             }
-    dw.update_chart(chart_id=race.get("Key"), data=new_data, metadata=metadata, publish=True)
+    chart_id = race.get("Key")
+    dw.add_data(chart_id=chart_id, data=new_data)
+    dw.update_metadata(chart_id=chart_id, metadata=metadata)
+    dw.publish_chart(chart_id=chart_id)
 
 # %%
 # Update the Shasta County results with the same process as above, but with a different API endpoint
@@ -242,7 +245,10 @@ for race in calraces:
                 }
             }
     #Update chart data/metadata and publish in one call
-    dw.update_chart(chart_id=race.get("Key"), data=new_data, metadata=metadata, publish=True)
+    chart_id = race.get("Key")
+    dw.add_data(chart_id=chart_id, data=new_data)
+    dw.update_metadata(chart_id=chart_id, metadata=metadata)
+    dw.publish_chart(chart_id=chart_id)
 
 # %%
 #Delete any .json files older than 24 hours
