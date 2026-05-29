@@ -103,15 +103,13 @@ for race in calraces:
         new_data = pd.read_csv(race.get("filename"), encoding="utf-8-sig")
     except UnicodeDecodeError:
         new_data = pd.read_csv(race.get("filename"), encoding="cp1252")
-    dw.add_data(chart_id=race.get("Key"), data=new_data)
     metadata = {
                 "annotate": {
                     #NOTE: Change "PST" to "PDT" if the current time is in Daylight Saving Time
                     "notes": f"Last updated: {latest_time} PDT"
                 }
             }
-    dw.update_metadata(race.get("Key"), metadata=metadata)
-    dw.publish_chart(race.get("Key"))
+    dw.update_chart(chart_id=race.get("Key"), data=new_data, metadata=metadata, publish=True)
 
 # %%
 # Update the Shasta County results with the same process as above, but with a different API endpoint
@@ -236,8 +234,6 @@ for race in calraces:
         new_data = pd.read_csv(race.get("filename"), encoding="utf-8-sig") 
     except UnicodeDecodeError:
         new_data = pd.read_csv(race.get("filename"), encoding="cp1252")
-    #Update the data in the Datawrapper chart with the new data from the CSV file
-    dw.add_data(chart_id=race.get("Key"), data=new_data)
     #Update the metadata to include an annotation with the last updated time
     metadata = {
                 "annotate": {
@@ -245,10 +241,8 @@ for race in calraces:
                     "notes": f"Last updated: {latest_time} PDT"
                 }
             }
-    #Push the medata update to the Datawrapper chart
-    dw.update_metadata(race.get("Key"), metadata=metadata)
-    #Republish the chart
-    dw.publish_chart(race.get("Key"))
+    #Update chart data/metadata and publish in one call
+    dw.update_chart(chart_id=race.get("Key"), data=new_data, metadata=metadata, publish=True)
 
 # %%
 #Delete any .json files older than 24 hours
