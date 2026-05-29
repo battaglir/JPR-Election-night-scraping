@@ -13,10 +13,13 @@ pacific_tz = pytz.timezone('US/Pacific')
 #Set the current date and time
 timenow = datetime.datetime.now(tz=pacific_tz).strftime("%Y-%m-%d_%H-%M")
 
+#Set the datawrapper API key from an environment variable for security
 dw_key = os.environ.get("DATAWRAPPER_API_KEY")
 
+#Setup the Datawrapper client
 dw = Datawrapper(dw_key)
 
+#Create the JSON directory if it doesn't exist
 if not os.path.exists('jsons'):
     os.makedirs('jsons')
 
@@ -112,7 +115,7 @@ for race in calraces:
 
 # %%
 # Update the Shasta County results with the same process as above, but with a different API endpoint
-import requests, time, json, datetime, csv
+#import requests, time, json, datetime, csv
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36',
@@ -124,6 +127,7 @@ url = "https://results.enr.clarityelections.com/CA/Shasta/126486/373172/json/en/
 retry_count = 5  # Number of retries if request fails
 retry_delay = 5  # Delay between retries in seconds
 
+#Make the request with retries for handling 202 responses and other potential errors
 for i in range(retry_count):
     try:
         r = requests.get(url, headers=headers)
@@ -194,6 +198,7 @@ for contest in data:
      if contest['C'] in watched_contests:
           # Extract the 'C', 'CH', 'PCT', and 'V' values
           c_value = contest.get('C')
+          #Convert the candidate names to title case for better readability in the CSV
           ch_value = [name.title() for name in contest.get('CH', [])]
           pct_value = contest.get('PCT')
           v_value = contest.get('V')
@@ -207,8 +212,9 @@ for contest in data:
           # Write to CSV
           with open(clean_name, 'w', newline='') as f:
                writer = csv.writer(f)
+               #Check if the contest is a measure, which will use a different header.
                if c_value == "Measure B":
-                    writer.writerow(["Result", "Votes", "Percent"])
+                    writer.writerow(["Result", "Votes", "Percent"]) # Write header for measure
                else:
                     writer.writerow(["Candidate", "Votes", "Percent"])  # Write header
                for row in rows:
@@ -217,41 +223,49 @@ for contest in data:
 # %%
 #Update the datawrapper charts
 
+#open the JSON file with the list of CSV files and their corresponding Datawrapper chart keys
 with open('jsons/shastaraces.json') as f:
     calraces = json.load(f)
 
+#Set the latest time for the annotation in the Datawrapper charts
 latest_time = datetime.datetime.now(tz=pacific_tz).strftime("%m/%d/%Y, %I:%M %p")
 
 # Update the Datawrapper charts with the new data
 for race in calraces:
     print(f"Updating {race.get('filename')}")
+    # Try UTF-8 encoding first, then fall back to cp1252 if that fails (for files with special characters like accents)
     try:
-        new_data = pd.read_csv(race.get("filename"), encoding="utf-8-sig")
+        new_data = pd.read_csv(race.get("filename"), encoding="utf-8-sig") 
     except UnicodeDecodeError:
         new_data = pd.read_csv(race.get("filename"), encoding="cp1252")
+    #Update the data in the Datawrapper chart with the new data from the CSV file
     dw.add_data(chart_id=race.get("Key"), data=new_data)
+    #Update the metadata to include an annotation with the last updated time
     metadata = {
                 "annotate": {
                     #NOTE: Change "PST" to "PDT" if the current time is in Daylight Saving Time
                     "notes": f"Last updated: {latest_time} PDT"
                 }
             }
+    #Push the medata update to the Datawrapper chart
     dw.update_metadata(race.get("Key"), metadata=metadata)
+    #Republish the chart
     dw.publish_chart(race.get("Key"))
 
 # %%
-#Delete any .csv files older than 24 hours
-
+#Delete any .json files older than 24 hours
 now = datetime.datetime.now(tz=pacific_tz).strftime("%m-%d")
 print(f"Checking for old files to delete...")
 print(f"Current date: "+now)
+#Iterate through all files in the JSON
 for filename in os.listdir('jsons/.'):
 	print(f"Checking file: "+filename)
 	if filename.endswith('.json'):
+        #Extract the month and day from the filename. All JSON filenames use the format "YYYY-MM-DD_HH-MM" at the end
 		file_date = re.search("-(\d{2}-\d{2})", filename)
+        #If the data doesn't match the current month and day, delete the file
 		if file_date.group(1) != now:
 			os.remove(f'jsons/{filename}')
 			print(f"Deleted old file: {filename}")
 		else:
 			print(f"File is current, not deleting: {filename}")
-# %%

@@ -68,13 +68,35 @@ Then once you enable the job, it should run. You can manually run it to test it 
 - This program cannot be used out of the box, you will need to make some changes to adjust for your specific needs, including adding a DataWrapper API key. Those are mostly all noted in comments in the script.
 
 ## California URL Info
-
+(Updated 5/29/2026)
 California makes things pretty easy. There is a guide available at [https://www.sos.ca.gov/media](https://www.sos.ca.gov/media). In the API endpoints document, you can find the direct links to results for every race. Below those there are also race ID URLS. If you find the right URLs, you can combine them into one to get all the results you need in one request. For example [https://api.sos.ca.gov/returns/query?r=[%2203000000000059%22,%20%2202000000000059%22]](https://api.sos.ca.gov/returns/query?r=[%2203000000000059%22,%20%2202000000000059%22]) will return the statewide results for governor and lieutenant governor. (%22 is replaced with quotes and %20 is a space)
 In the past, I've pulled all the candidate races I needed in one URL, and then searched the results to get the data I needed. and for propositions I just pulled them all with [https://api.sos.ca.gov/returns/ballot-measures)](https://api.sos.ca.gov/returns/ballot-measures)
 
+**Shasta County URL Info**:
+The URL for Shasta County results changes every election. The base link to the webpage of results looks like this: [https://results.enr.clarityelections.com/CA/Shasta/126486/web.345435/#/summary](https://results.enr.clarityelections.com/CA/Shasta/126486/web.345435/#/summary). That number right after "Shasta/" is a unique code for that specific election (that link is for the June 2026 primary).
+
+To get that link ahead of the election, you'll need to contact the elections department.
+
+But this gives us the website results, not the JSON that we want. We have to use another Python library called [Clarify](https://github.com/openelections/clarify) that can give us the JSON link.
+
+Clairfy can't get the JSON link directly, but can get us the base URL we need. Use this code, replacing the URL with the link to the most current results webpage.
+
+```
+import clarify, requests
+
+j = clarify.Jurisdiction(url= 'https://results.enr.clarityelections.com/CA/Shasta/126486/web.345435/#/summary', level='county')
+j.report_url('xml')
+```
+
+You'll get a link that looks like this: [https://results.enr.clarityelections.com/CA/Shasta/126486/373172/reports/detailxml.zip](https://results.enr.clarityelections.com/CA/Shasta/126486/373172/reports/detailxml.zip)
+
+Simply replace the "reports/detailxml.zip" with "json/en/summary.json" to get the full JSON results for all contests.
+
+I just grab the entire JSON, then search through it for the needed contests and pull the data from that.
+
 ## Oregon URL info
 
-(Accurate as of 5/19/2026)
+(Updated 5/19/2026)
 The Oregon base URL is [https://orresultswebservices.azureedge.us](https://orresultswebservices.azureedge.us)
 To access results, you need to input certain codes, after the heading "/ResultsAjax.svc/GetMapData?"
 All of the following need to be inputted to access results: type, category, raceID, osn, party & county
