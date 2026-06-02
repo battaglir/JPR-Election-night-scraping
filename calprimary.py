@@ -120,8 +120,15 @@ for race in calraces:
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0',
+    'Accept': 'application/json, text/plain, */*',
     'Accept-Language': 'en-US,en;q=0.9',
-    'Accept-Encoding': 'gzip, deflate, br, zstd',  # You can add more headers if needed
+    'Accept-Encoding': 'gzip, deflate, br, zstd',
+    'Connection': 'keep-alive',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-GPC': '1',
+    'Upgrade-Insecure-Requests': '1', # You can add more headers if needed
 }
 
 url = "https://results.enr.clarityelections.com/CA/Shasta/126486/373172/json/en/summary.json"
@@ -134,6 +141,7 @@ for i in range(retry_count):
         r = requests.get(url, headers=headers)
         if r.status_code == 202:
             print("Received 202 response, retrying...")
+            print(r.text)
             time.sleep(retry_delay)
             continue
         r.raise_for_status()
@@ -157,7 +165,7 @@ for i in range(retry_count):
         time.sleep(retry_delay)
 else:
     print("Max retries exceeded. Exiting...")
-    
+    print(r.text)
 # Import the JSON
 print(r.status_code)
 r.raise_for_status()
