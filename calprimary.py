@@ -14,8 +14,7 @@ pacific_tz = pytz.timezone('US/Pacific')
 timenow = datetime.datetime.now(tz=pacific_tz).strftime("%Y-%m-%d_%H-%M")
 
 #Set the datawrapper API key from an environment variable for security
-#dw_key = os.environ.get("DATAWRAPPER_API_KEY")
-dw_key = "Ncg8KuYU0GLV1bknzdTS3s9K8o3XqJEZOtoDNinVzVH1BfDdck7G8EwGeANqVkqz"
+dw_key = os.environ.get("DATAWRAPPER_API_KEY")
 
 #Setup the Datawrapper client
 dw = Datawrapper(dw_key)
