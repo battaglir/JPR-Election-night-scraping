@@ -14,7 +14,8 @@ pacific_tz = pytz.timezone('US/Pacific')
 timenow = datetime.datetime.now(tz=pacific_tz).strftime("%Y-%m-%d_%H-%M")
 
 #Set the datawrapper API key from an environment variable for security
-dw_key = os.environ.get("DATAWRAPPER_API_KEY")
+#dw_key = os.environ.get("DATAWRAPPER_API_KEY")
+dw_key = "Ncg8KuYU0GLV1bknzdTS3s9K8o3XqJEZOtoDNinVzVH1BfDdck7G8EwGeANqVkqz"
 
 #Setup the Datawrapper client
 dw = Datawrapper(dw_key)
@@ -141,7 +142,7 @@ for i in range(retry_count):
         r = requests.get(url, headers=headers)
         if r.status_code == 202:
             print("Received 202 response, retrying...")
-            print(r.text)
+            print(r.headers)
             time.sleep(retry_delay)
             continue
         r.raise_for_status()
@@ -165,7 +166,7 @@ for i in range(retry_count):
         time.sleep(retry_delay)
 else:
     print("Max retries exceeded. Exiting...")
-    print(r.text)
+    print(r.headers)
 # Import the JSON
 print(r.status_code)
 r.raise_for_status()
