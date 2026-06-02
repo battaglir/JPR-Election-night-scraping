@@ -119,6 +119,8 @@ for race in calraces:
 # Update the Shasta County results with the same process as above, but with a different API endpoint
 #import requests, time, json, datetime, csv
 
+s = requests.Session()
+
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:151.0) Gecko/20100101 Firefox/151.0',
     'Accept': 'application/json, text/plain, */*',
@@ -139,7 +141,7 @@ retry_delay = 5  # Delay between retries in seconds
 #Make the request with retries for handling 202 responses and other potential errors
 for i in range(retry_count):
     try:
-        r = requests.get(url, headers=headers)
+        r = s.get(url, headers=headers)
         if r.status_code == 202:
             print("Received 202 response, retrying...")
             print(r.headers)
