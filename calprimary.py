@@ -16,7 +16,6 @@ timenow = datetime.datetime.now(tz=pacific_tz).strftime("%Y-%m-%d_%H-%M")
 #Set the datawrapper API key from an environment variable for security
 dw_key = os.environ.get("DATAWRAPPER_API_KEY")
 
-
 #Setup the Datawrapper client
 dw = Datawrapper(dw_key)
 
@@ -134,7 +133,7 @@ headers = {
     'Upgrade-Insecure-Requests': '1', # You can add more headers if needed
 }
 
-url = "https://results.enr.clarityelections.com/CA/Shasta/126486/374013/json/en/summary.json"
+url = "https://results.enr.clarityelections.com/CA/Shasta/126486/374094/json/en/summary.json"
 retry_count = 5  # Number of retries if request fails
 retry_delay = 5  # Delay between retries in seconds
 
