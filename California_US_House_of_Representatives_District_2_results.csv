@@ -1,4 +1,5 @@
 Candidate,Party,Votes,Percent
+<<<<<<< HEAD
 Jared Huffman,Democratic,19982,68.6
 Rose Penelope Yee,Democratic,1391,4.8
 Tim Geist,Republican,1663,5.7
@@ -7,3 +8,13 @@ Paul Saulsbury,Republican,1533,5.3
 Angelita Valles,Republican,1891,6.5
 Gregory Burgess,No Party Preference,159,0.5
 Nicolette Hahn Niman,No Party Preference,1475,5.1
+=======
+Jared Huffman,Democratic,19398,70.1
+Rose Penelope Yee,Democratic,1318,4.8
+Tim Geist,Republican,1486,5.4
+Robin Littau,Republican,849,3.1
+Paul Saulsbury,Republican,1359,4.9
+Angelita Valles,Republican,1704,6.2
+Gregory Burgess,No Party Preference,141,0.5
+Nicolette Hahn Niman,No Party Preference,1402,5.1
+>>>>>>> cbc84c5e57e29e14d917286fcaeae0ea2967e568

@@ -1,4 +1,5 @@
 Candidate,Party,Votes,Percent
+<<<<<<< HEAD
 Akinyemi Agbede,Democratic,902,0.0
 Mohammad Arif,Democratic,2848,0.1
 Larry Azevedo,Democratic,1673,0.1
@@ -60,3 +61,66 @@ Christine R. Sarmiento,No Party Preference,1861,0.1
 Frederic C. Schultz,No Party Preference,1576,0.1
 Margaret Trowe,No Party Preference,693,0.0
 Nancy D. Young,No Party Preference,2618,0.1
+=======
+Akinyemi Agbede,Democratic,831,0.0
+Mohammad Arif,Democratic,2594,0.1
+Larry Azevedo,Democratic,1506,0.1
+Xavier Becerra,Democratic,643190,26.8
+Carolina Buhler,Democratic,3292,0.1
+Louis A. De Barraicua,Democratic,1888,0.1
+Sophia Edum-a-Sam,Democratic,928,0.0
+Derek Grasty,Democratic,1549,0.1
+Joel E. Jacob,Democratic,542,0.0
+Gary Howard Kidgell,Democratic,703,0.0
+Matthew Chase Levy,Democratic,3600,0.2
+Matt Mahan,Democratic,108259,4.5
+Barack D. Obama Shaw,Democratic,5069,0.2
+Thunder Parley,Democratic,653,0.0
+Katie Porter,Democratic,127479,5.3
+Raji Rab,Democratic,898,0.0
+Satish Rao,Democratic,1536,0.1
+Scott P Shields,Democratic,1650,0.1
+Tom Steyer,Democratic,484852,20.2
+Eric Swalwell,Democratic,9356,0.4
+Tony K. Thurmond,Democratic,16648,0.7
+Antonio Villaraigosa,Democratic,38246,1.6
+Betty T. Yee,Democratic,14229,0.6
+"Erin ""Zez"" Zezulak",Democratic,2604,0.1
+James Athans Jr.,Republican,2414,0.1
+Chad Bianco,Republican,240589,10.0
+Patricia De Luca Basualdo,Republican,1083,0.0
+Randeep S. Dhillon,Republican,6725,0.3
+Rafael M. Hernandez,Republican,1334,0.1
+Steve Hilton,Republican,618212,25.8
+Alicia Olivia Lapp,Republican,1948,0.1
+Leo Naranjo IV,Republican,2245,0.1
+Tim Nelson,Republican,8229,0.3
+Gretha Solórzano,Republican,4377,0.2
+Leo Samuel Zacky,Republican,5151,0.2
+David Zickefoose,Republican,2152,0.1
+Tom Woodard,Libertarian,2737,0.1
+Ramsey Robinson,Peace and Freedom,8647,0.4
+Naomi Bar-Lev,No Party Preference,726,0.0
+Joseph Cabrera,No Party Preference,1510,0.1
+Elaine Culotti,No Party Preference,1161,0.0
+LivingForGod AndCountry DeMott,No Party Preference,590,0.0
+Serge Fiankan,No Party Preference,118,0.0
+Lukasz Adam Filinski,No Party Preference,161,0.0
+Max Fomin,No Party Preference,227,0.0
+Don J. Grundmann,No Party Preference,533,0.0
+Jon Henderson,No Party Preference,1499,0.1
+Lewis Herms,No Party Preference,506,0.0
+Dawit Kellel,No Party Preference,306,0.0
+Anne Komarovsk,No Party Preference,482,0.0
+Duane Terrence Loynes Jr.,No Party Preference,423,0.0
+Amanda Martin,No Party Preference,1382,0.1
+Brent Maupin,No Party Preference,669,0.0
+Daniel Mercuri,No Party Preference,698,0.0
+Mauro Alberto Orozco,No Party Preference,766,0.0
+Reza Safarnejad,No Party Preference,689,0.0
+Sam Sandak,No Party Preference,299,0.0
+Christine R. Sarmiento,No Party Preference,1738,0.1
+Frederic C. Schultz,No Party Preference,1437,0.1
+Margaret Trowe,No Party Preference,626,0.0
+Nancy D. Young,No Party Preference,2407,0.1
+>>>>>>> cbc84c5e57e29e14d917286fcaeae0ea2967e568
