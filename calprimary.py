@@ -138,6 +138,17 @@ retry_count = 5  # Number of retries if request fails
 retry_delay = 5  # Delay between retries in seconds
 
 #Make the request with retries for handling 202 responses and other potential errors
+r = s.get(url, headers=headers)
+r.raise_for_status()
+print(r.status_code)
+if not r.content:
+    print("There's no data available")
+else:
+     print("Request successful")
+
+
+#This is temporary old code for making the requests during testing.
+"""
 for i in range(retry_count):
     try:
         r = s.get(url, headers=headers)
@@ -173,6 +184,7 @@ print(r.status_code)
 r.raise_for_status()
 if not r.content:
     print("There's no data available")
+"""
 
 #Converts the raw data to a JSON file
 data = r.json()
