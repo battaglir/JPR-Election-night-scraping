@@ -134,8 +134,6 @@ headers = {
 }
 
 url = "https://results.enr.clarityelections.com/CA/Shasta/126486/374094/json/en/summary.json"
-retry_count = 5  # Number of retries if request fails
-retry_delay = 5  # Delay between retries in seconds
 
 #Make the request with retries for handling 202 responses and other potential errors
 r = s.get(url, headers=headers)
@@ -147,8 +145,10 @@ else:
      print("Request successful")
 
 
-#This is temporary old code for making the requests during testing.
+#This is old code for making the requests that seemed to not work as well.
 """
+retry_count = 5  # Number of retries if request fails
+retry_delay = 5  # Delay between retries in seconds
 for i in range(retry_count):
     try:
         r = s.get(url, headers=headers)
