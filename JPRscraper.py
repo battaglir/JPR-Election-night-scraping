@@ -404,7 +404,10 @@ for oregonurl in open("oregon_raceids.txt").read().splitlines():
         for race in races:
              
             #Gather the required information from the JSON
-            race_name = race["RaceName"]
+            race_name = race["RaceName"].replace(
+                "(4 Year Term - 3 Seats) (2 Year Unexpired Term - 1 Seat) (Vote For 4)",
+                "(4 at-large seats)"
+            )
             race_candidate = race["calcCandidate"]
             race_percentage = race["calcCandidatePercentage"]*100
             race_votes = race["calcCandidateVotes"]

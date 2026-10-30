@@ -16,3 +16,10 @@ https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL
 https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=CTY&raceID=300039192&osn=0&county=0&party=0
 https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=CTY&raceID=300038426&osn=0&county=0&party=0
 https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=CTY&raceID=300039332&osn=0&county=0&party=0
+https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=CTY&raceID=300039210&osn=0&county=0&party=0
+https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=CTY&raceID=300039295&osn=0&county=0&party=0
+https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=CTY&raceID=300039296&osn=0&county=0&party=0
+https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=CTY&raceID=300039297&osn=0&county=0&party=0
+https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=CTY&raceID=300039198&osn=0&county=0&party=0
+https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=CTY&raceID=300039199&osn=0&county=0&party=0
+https://orresultswebservices.azureedge.us/ResultsAjax.svc/GetMapData?type=CTYALL&category=CTY&raceID=300039200&osn=0&county=0&party=0
