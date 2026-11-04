@@ -38,7 +38,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run the California primary scraper
       #change this to the name of your scraper. Currently set to run the May Primary scraper
-      run: python calprimary.py
+      run: python JPRscraper.py
     - name: Commit and push to main branch
       run: |
         git config user.name "Automated"
