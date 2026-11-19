@@ -1,16 +1,16 @@
 Race,Candidate,Party,Votes,Percent
-Governor,Brett Smith,Pacific Green,57584,2.9117372074243635
-Governor,Tina Kotek,"Democrat, Working Families",1053593,53.27497116528649
-Governor,Christine Drazan,"Republican, Libertarian",863922,43.68424964768809
-Governor,Write-in,,2552,0.12904197960105196
-US Senator,David Brock Smith,Republican,757880,38.572038580181726
-US Senator,Jeff Merkley,"Democrat, Working Families",1141127,58.07726113485913
-US Senator,Gary Lyndon Dye,Libertarian,20118,1.0238986015676572
-US Senator,Chris Henry,"Progressive, Pacific Green",44283,2.253767858297075
-US Senator,Write-in,,1435,0.0730338250944223
-"US Representative, 2nd District",Chris Beck,"Democrat, Independent",118865,38.44959485031296
-"US Representative, 2nd District",Cliff Bentz,Republican,189878,61.42036908246939
-"US Representative, 2nd District",Write-in,,402,0.13003606721764868
+Governor,Brett Smith,Pacific Green,57639,2.9130379409053417
+Governor,Tina Kotek,"Democrat, Working Families",1054013,53.26913824333285
+Governor,Christine Drazan,"Republican, Libertarian",864449,43.68869576116313
+Governor,Write-in,,2555,0.1291280545986771
+US Senator,David Brock Smith,Republican,758330,38.57574011062045
+US Senator,Jeff Merkley,"Democrat, Working Families",1141593,58.07207268617031
+US Senator,Gary Lyndon Dye,Libertarian,20137,1.0243557271999841
+US Senator,Chris Henry,"Progressive, Pacific Green",44324,2.2547322467305007
+US Senator,Write-in,,1437,0.07309922927875936
+"US Representative, 2nd District",Chris Beck,"Democrat, Independent",118917,38.44974925552656
+"US Representative, 2nd District",Cliff Bentz,Republican,189959,61.41994768477653
+"US Representative, 2nd District",Write-in,,403,0.13030305969690797
 "US Representative, 4th District",Monique DeSpain,"Republican, Libertarian",146022,42.777418097980686
 "US Representative, 4th District",Val Hoyle,"Democrat, Working Families",183146,53.65296335465046
 "US Representative, 4th District",Justin Filip,"Pacific Green, Progressive",11857,3.473530333701476
@@ -22,9 +22,9 @@ US Senator,Write-in,,1435,0.0730338250944223
 "State Representative, 1st District",Court Boice,Republican,22590,64.60561688497397
 "State Representative, 1st District",Bret Cecil,Democrat,12284,35.13127037693759
 "State Representative, 1st District",Write-in,,92,0.2631127380884288
-"State Representative, 3rd District",Dwayne Yunker,Republican,18495,59.66706455463432
-"State Representative, 3rd District",Susan Fischer-Maki,Democrat,12434,40.11355937671387
-"State Representative, 3rd District",Write-in,,68,0.21937606865180503
+"State Representative, 3rd District",Dwayne Yunker,Republican,18531,59.64850162551903
+"State Representative, 3rd District",Susan Fischer-Maki,Democrat,12468,40.13261660282615
+"State Representative, 3rd District",Write-in,,68,0.21888177165481057
 "State Representative, 5th District",Alexander Krigsvold,Republican,11540,31.53953373964853
 "State Representative, 5th District",Pam Marsh,"Democrat, Independent",25016,68.37027521932822
 "State Representative, 5th District",Write-in,,33,0.09019104102325835
@@ -34,23 +34,23 @@ US Senator,Write-in,,1435,0.0730338250944223
 "State Representative, 9th District",John Ezra Scheirman,Democrat,14540,43.64793467819405
 "State Representative, 9th District",Claire Lynn,Republican,18720,56.195965417867434
 "State Representative, 9th District",Write-in,,52,0.15609990393852063
-"State Representative, 55th District",Colby M Simmons,Democrat,11321,32.527870359728766
-"State Representative, 55th District",E Werner Reschke,Republican,23411,67.26525686702678
-"State Representative, 55th District",Write-in,,72,0.20687277324445466
-"State Representative, 56th District",Emily G McIntire,Republican,20851,96.57264600991154
-"State Representative, 56th District",Write-in,,740,3.427353990088463
+"State Representative, 55th District",Colby M Simmons,Democrat,11326,32.521679205191525
+"State Representative, 55th District",E Werner Reschke,Republican,23428,67.2715787055648
+"State Representative, 55th District",Write-in,,72,0.20674208924366852
+"State Representative, 56th District",Emily G McIntire,Republican,20863,96.57007961488613
+"State Representative, 56th District",Write-in,,741,3.429920385113868
 "Jackson County Commissioner, Position 1",Rick Dyer,Republican,54817,53.95958223823445
 "Jackson County Commissioner, Position 1",Lyndi Reichenbach,Democrat,46691,45.960684719802344
 "Jackson County Commissioner, Position 1",Write-in,,81,0.07973304196320467
 "Jackson County Commissioner, Position 3",Isabella Lee Tibbetts,"Democrat, Working Families",48785,48.20938000276696
 "Jackson County Commissioner, Position 3",Colleen Roberts,Republican,52331,51.71354032847797
 "Jackson County Commissioner, Position 3",Write-in,,78,0.07707966875506453
-"Josephine County Commissioner, Position 1",John West,,15503,42.01582741612012
-"Josephine County Commissioner, Position 1",Colene Martin,,21210,57.48279039514337
-"Josephine County Commissioner, Position 1",Write-in,,185,0.5013821887365169
-"Josephine County Commissioner, Position 2 (2 Year Unexpired Term)",Mark Jones,,19000,54.09714708729572
-"Josephine County Commissioner, Position 2 (2 Year Unexpired Term)",Chad Hansen,,15975,45.48431182734468
-"Josephine County Commissioner, Position 2 (2 Year Unexpired Term)",Write-in,,147,0.41854108535960366
+"Josephine County Commissioner, Position 1",John West,,15539,42.01319418158222
+"Josephine County Commissioner, Position 1",Colene Martin,,21264,57.49202400908452
+"Josephine County Commissioner, Position 1",Write-in,,183,0.4947818093332612
+"Josephine County Commissioner, Position 2 (2 Year Unexpired Term)",Mark Jones,,19059,54.12489705506489
+"Josephine County Commissioner, Position 2 (2 Year Unexpired Term)",Chad Hansen,,16007,45.45764348394059
+"Josephine County Commissioner, Position 2 (2 Year Unexpired Term)",Write-in,,147,0.4174594609945191
 "Curry County Commissioner, Position 1",Lynn Coker,,5800,56.546748561957685
 "Curry County Commissioner, Position 1",Jeremy Dumire,,4150,40.46017354002145
 "Curry County Commissioner, Position 1",Write-in,,307,2.993077898020864
@@ -80,13 +80,13 @@ US Senator,Write-in,,1435,0.0730338250944223
 "City of Medford, Council Member, Ward 4",Nick Card,,5429,56.58155289213131
 "City of Medford, Council Member, Ward 4",Alan Jackson,,4119,42.92860865033872
 "City of Medford, Council Member, Ward 4",Write-in,,47,0.4898384575299636
-"City of Grants Pass Council, Ward 1",Rob Pell,,7989,63.359505115393766
-"City of Grants Pass Council, Ward 1",Michael J O'Coyne,,4561,36.172575144737884
-"City of Grants Pass Council, Ward 1",Write-in,,59,0.467919739868348
-"City of Grants Pass Council, Ward 2",Erin Cook,,3896,32.182388898067074
-"City of Grants Pass Council, Ward 2",Rick Riker,,5703,47.10887163390055
-"City of Grants Pass Council, Ward 2",Candy Rosenberg,,2471,20.41136626466215
-"City of Grants Pass Council, Ward 2",Write-in,,36,0.29737320337022966
-"City of Grants Pass Council, Ward 3",Konnor Kirkpatrick,,2717,22.934076137418753
-"City of Grants Pass Council, Ward 3",Seth Benham,,9063,76.50037984299823
-"City of Grants Pass Council, Ward 3",Write-in,,67,0.5655440195830168
+"City of Grants Pass Council, Ward 1",Rob Pell,,8008,63.35443037974684
+"City of Grants Pass Council, Ward 1",Michael J O'Coyne,,4573,36.17879746835443
+"City of Grants Pass Council, Ward 1",Write-in,,59,0.46677215189873417
+"City of Grants Pass Council, Ward 2",Erin Cook,,3908,32.19906072340776
+"City of Grants Pass Council, Ward 2",Rick Riker,,5716,47.09565790557799
+"City of Grants Pass Council, Ward 2",Candy Rosenberg,,2477,20.408667710307324
+"City of Grants Pass Council, Ward 2",Write-in,,36,0.29661366070692924
+"City of Grants Pass Council, Ward 3",Konnor Kirkpatrick,,2726,22.951923886503327
+"City of Grants Pass Council, Ward 3",Seth Benham,,9084,76.48396059611014
+"City of Grants Pass Council, Ward 3",Write-in,,67,0.5641155173865454
